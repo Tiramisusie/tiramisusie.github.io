@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript数组降维 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="今天看到了一篇文章，《优雅的数组降维——Javascript中apply方法的妙用》。里面介绍了3种多维数组降维的方法，个人感觉比较实用，于是记录一下。">
+  
+
+  
+  
+  <meta name="keywords" content="JavaScript">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="javascript数组降维"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>javascript数组降维</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/02/19/javascript数组降维/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-02-19T05:08:27.000Z">
+          2016-02-19
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>今天看到了一篇文章，<a href="http://www.cnblogs.com/front-end-ralph/p/4871332.html" target="_blank" rel="external">《优雅的数组降维——Javascript中apply方法的妙用》</a>。里面介绍了3种多维数组降维的方法，个人感觉比较实用，于是记录一下。</p>
+<a id="more"></a>
+<p>下面以二维数组转一维数组为例来说明。</p>
+<h3 id="1、一般的转换"><a href="#1、一般的转换" class="headerlink" title="1、一般的转换"></a>1、一般的转换</h3><p>看到数组降维，我们可能首先就想到用循环，这也是最直观最简单的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">reduceDimension</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> reduced = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr[i].length; j++) &#123;</div><div class="line">            reduced.push(arr[i][j]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> reduced;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个方法的思路很简单，利用嵌套的循环来遍历二维数组中的每一个元素。</p>
+<h3 id="2、利用-concat"><a href="#2、利用-concat" class="headerlink" title="2、利用 concat()"></a>2、利用 concat()</h3><p>js 的 concat() 函数用于拼接数组，它的参数可以是一个元素也可以是一个数组，如果是数组的话，数组中的每一个元素都会按照顺序拼接到新的数组的尾部。对于二维数组来说，arr[i] 就是一个数组。因此 arr[i] 就可以作为 concat() 的参数来，于是我们可以改进一下第一种方法，省去了内层的循环。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">reduceDimension</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> reduced = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++)&#123;</div><div class="line">        reduced = reduced.concat(arr[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> reduced;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3、利用-concat-和-apply"><a href="#3、利用-concat-和-apply" class="headerlink" title="3、利用 concat() 和 apply()"></a>3、利用 concat() 和 apply()</h3><p>concat() 的参数可以只有一个，也可以有多个，如果是多个参数的话，就会按顺序进行拼接。我们的二维数组 arr，从另一种角度来看也是一维数，它的每一个元素都是一个数组，我们现在只需要把它的每一个元素（数组）作为参数，一次过传给 concat()，这样就可以不用循环了。</p>
+<p>所以现在的问题就是怎么样<strong>不用</strong>循环把 arr 包含的多个数组一次过传给 concat()。幸运的是在 js 里面我们有 apply() 函数。apply() 函数的第二个参数是一个数组，这个数组中的每一个元素会依次作为被调用函数的参数。利用这个特点，我们就可以解决上面的问题了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">reduceDimension</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.prototype.concat.apply([], arr);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//对于二维数组，arr = [[1,2], [3,4], [5,6]]</span></div><div class="line"><span class="comment">//上面的函数就相当于下面的函数</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">reduceDimension</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> [].concat(arr[<span class="number">0</span>], arr[<span class="number">1</span>], arr[<span class="number">2</span>]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>相对于前面两种方法，第三种方法显得更加简单，巧妙。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/JavaScript/">JavaScript</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

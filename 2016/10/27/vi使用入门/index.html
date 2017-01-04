@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vi使用入门 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="一直都想学 vim ，但是又没找到合适的教程。刚好这两天在看《鸟哥的 Linux 私房菜》，里面就有一章是讲 vim 的用法，而且说得通俗易懂。这下终于可以入坑 vim 了。
+vi ？vim ？之前一直以为 vi 和 vim 就是一个东西，虽然还是可以认为它们就是同一个东西，但其实 vi 是一个更加">
+  
+
+  
+  
+  <meta name="keywords" content="vi,vim">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="vi使用入门"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>vi使用入门</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/10/27/vi使用入门/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-27T11:32:56.000Z">
+          2016-10-27
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>一直都想学 vim ，但是又没找到合适的教程。刚好这两天在看《鸟哥的 Linux 私房菜》，里面就有一章是讲 vim 的用法，而且说得通俗易懂。这下终于可以入坑 vim 了。</p>
+<h2 id="vi-？vim-？"><a href="#vi-？vim-？" class="headerlink" title="vi ？vim ？"></a>vi ？vim ？</h2><p>之前一直以为 vi 和 vim 就是一个东西，虽然还是可以认为它们就是同一个东西，但其实 vi 是一个更加古老一点的文字编辑器。而 vim 是 vi 的一个进阶版，专注于「程序编辑」。</p>
+<p>根据 vim 官网的介绍，多数的 Unix 系统和 macOX 里面，vim 已经集成到系统里面，并且就叫做 vi。所以下面说的「vi」和「vim」是同一个意思。</p>
+<h2 id="使用-vi"><a href="#使用-vi" class="headerlink" title="使用 vi"></a>使用 vi</h2><p>在 shell 或者其他命令行工具中输入命令 <code>vi [filename]</code> 就可以在 vi 模式下打开文件了。注意，在输入文件名的时候要输入后缀名。否则不能打开你希望的文件。当你想打开的文件不存在的时候，就会自动新建一个文件。</p>
+<h3 id="vi-的三种模式"><a href="#vi-的三种模式" class="headerlink" title="vi 的三种模式"></a>vi 的三种模式</h3><p>在 vi 中，有三种模式：一般模式、编辑模式、指令模式</p>
+<h4 id="1、一般模式"><a href="#1、一般模式" class="headerlink" title="1、一般模式"></a>1、一般模式</h4><p>在命令行使用命令<code>vi [filename]</code>进入的界面就是「一般模式」。在这个模式下，可以进行以下的操作：</p>
+<ul>
+<li>光标的移动；</li>
+<li>搜索与替换；</li>
+<li>删除、复制、粘贴；</li>
+</ul>
+<p>在一般模式下，不能直接进行文字的输入。如果要输入文字，要先转换到「编辑模式」。</p>
+<h4 id="2、编辑模式"><a href="#2、编辑模式" class="headerlink" title="2、编辑模式"></a>2、编辑模式</h4><p>在一般模式下，按下 <code>i</code>，<code>o</code>，<code>a</code> 等字符都可以进入「编辑模式」。进入编辑模式后，会在左下角出现 <code>— INSERT --</code> 的字样。按下 <code>ESC</code> 可以回到「一般模式」。</p>
+<p>在编辑模式下，可以像在普通的编辑器里面一样编辑文字。</p>
+<h4 id="3、指令模式"><a href="#3、指令模式" class="headerlink" title="3、指令模式"></a>3、指令模式</h4><p>在一般模式下，输入冒号 <code>:</code> 会进入「指令模式」。同样可以按 <code>ESC</code> 来回到一般模式中。在指令模式下，可以进行保存、退出 vi 等操作。</p>
+<p>关于 vi 的三种模式，需要注意的是：「一般模式」可以进入「编辑模式」或者「指令模式」，「编辑模式」和「指令模式」都可以通过 <code>ESC</code> 回到「一般模式」。但「编辑模式」和「指令模式」之间不能直接进行切换，要先回到「一般模式」。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/vi-vim/">vi,vim</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

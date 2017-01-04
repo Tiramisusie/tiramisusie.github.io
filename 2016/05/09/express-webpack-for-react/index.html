@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>express+webpack for react | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="最近在做毕业设计，用到了 reactJs， express，mongoDB，然后用 webpack 作为构建工具。每次开始工作的时候都要先开启三个命令行窗口或标签页，分别用来启动 mongoDB，express 和 webpack构建命令。但是觉得每次都要开三个窗口太麻烦了，于是就想着能不能把 ex">
+  
+
+  
+  
+  <meta name="keywords" content="express webpack react">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="express+webpack for react"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>express+webpack for react</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/05/09/express-webpack-for-react/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-05-09T07:02:19.000Z">
+          2016-05-09
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>最近在做毕业设计，用到了 reactJs， express，mongoDB，然后用 webpack 作为构建工具。每次开始工作的时候都要先开启三个命令行窗口或标签页，分别用来启动 mongoDB，express 和 webpack构建命令。但是觉得每次都要开三个窗口太麻烦了，于是就想着能不能把 express 和 webpack 的启动放在一起。</p>
+<p>Google 了一下之后果然找到了办法。</p>
+<h2 id="webpack-middleware"><a href="#webpack-middleware" class="headerlink" title="webpack middleware"></a>webpack middleware</h2><p>这里主要用到了 webpack 的一个中间件：<code>webpack-dev-middleware</code>。</p>
+<p><strong>提醒一下</strong>，如果你原来是用 <code>webpack-dev-server</code> 的话，最好先 uninstall 一下，不然可能会出错。其实，<code>webpack-dev-server</code> 在内部也是用到了 <code>webpack-dev-middleware</code> ，我们这里只是把它独立出来使用。</p>
+<p>可能用人会问，<code>webpack-dev-server</code> 不也是内置了 express 的功能吗？为什么不直接用？我开始的时候也是这样想，但后来发现，这个内置的「express」好像只具备「server」的功能，没有处理网络请求的功能，所以当我在前端就不能正确的访问数据库。（当然也有可能是我的配置不对）</p>
+<p>另外，还用到了另一个中间件：<code>webpack-hot-middleware</code>。由于没有<code>webpack-dev-server</code> ，所以用这个中间件来提供「hot reload」的功能。</p>
+<h2 id="webpack-配置文件"><a href="#webpack-配置文件" class="headerlink" title="webpack 配置文件"></a>webpack 配置文件</h2><p>主要是 entry 的配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">entry: [</div><div class="line">  <span class="string">'webpack-hot-middleware/client'</span>,</div><div class="line">  <span class="string">'webpack/hot/dev-server'</span></div><div class="line">  <span class="string">'./src/index.js'</span></div><div class="line">],</div></pre></td></tr></table></figure>
+<h2 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</div><div class="line"><span class="keyword">var</span> WebpackDevMiddleware = <span class="built_in">require</span>(<span class="string">'webpack-dev-middleware'</span>);</div><div class="line"><span class="keyword">var</span> WebpackHotMiddleware = <span class="built_in">require</span>(<span class="string">'webpack-hot-middleware'</span>);</div><div class="line"><span class="keyword">var</span> config = <span class="built_in">require</span>(<span class="string">'./webpack.config'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> compiler = webpack(config);</div><div class="line"></div><div class="line">app.use(WebpackDevMiddleware(compiler, &#123;</div><div class="line">  <span class="attr">publicPath</span>: config.output.publicPath,</div><div class="line">  <span class="attr">historyApiFallback</span>: <span class="literal">true</span>,</div><div class="line">  <span class="attr">stats</span>: &#123;<span class="attr">colors</span>: <span class="literal">true</span>&#125;</div><div class="line">&#125;));</div><div class="line"></div><div class="line">app.use(WebpackHotMiddleware(compiler));</div><div class="line"></div><div class="line">app.listen(<span class="number">3000</span>)；</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/express-webpack-react/">express webpack react</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

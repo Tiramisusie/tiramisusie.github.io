@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Redux 初探 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="最近发现了一个东西叫做 redux ，感觉很厉害的样子，于是就抽时间学习了一下。">
+  
+
+  
+  
+  <meta name="keywords" content="redux react">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Redux 初探"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Redux 初探</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/12/31/redux/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-12-31T02:13:02.000Z">
+          2015-12-31
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>最近发现了一个东西叫做 redux ，感觉很厉害的样子，于是就抽时间学习了一下。</p>
+<a id="more"></a>
+<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><ul>
+<li><p><a href="http://camsong.github.io/redux-in-chinese/index.html" target="_blank" rel="external">中文文档</a></p>
+</li>
+<li><p><a href="http://rackt.org/redux/index.html" target="_blank" rel="external">英文文档</a></p>
+<p>​</p>
+</li>
+</ul>
+<h2 id="Redux-的三个原则"><a href="#Redux-的三个原则" class="headerlink" title="Redux 的三个原则"></a>Redux 的三个原则</h2><h3 id="1-只有一个store"><a href="#1-只有一个store" class="headerlink" title="1. 只有一个store"></a>1. 只有一个store</h3><p>​    在 redux 中，你只有一个 store ，这个 store 中有一棵 object tree ，它维护着整个引用的 state 。这样就保证了数据的单一来源。在 flux 中，由于你可以有多个 store ，导致你有时候分不清你的 state 是在哪里发生变化的，这样就导致了一些莫名其妙的 bug ，特别是对于初学者来说。</p>
+<h3 id="2-state-是只读的"><a href="#2-state-是只读的" class="headerlink" title="2. state 是只读的"></a>2. state 是只读的</h3><p>​    在你的应用中，你只能通过 action 来改变 state 。无论是视图还是网络请求，都不能直接改变 state ，只能通过 dispatch 一个 action 来表达想要改变 state 的意图。其实这也是保证了单一的数据源。</p>
+<h3 id="3-使用纯函数来修改数据"><a href="#3-使用纯函数来修改数据" class="headerlink" title="3. 使用纯函数来修改数据"></a>3. 使用纯函数来修改数据</h3><p>​    在 redux 中，我们通过 reducer 来接受 action 和旧的 state ，然后返回新的 state ，从而改变整个应用的 state tree。reducer 只是一些纯函数（不产生副作用，不发出网络请求）。你可以有多个 reducer ，并按照需要把 reducers 写在不同的文件中，最后通过 redux 的一个函数 combineReducers 把他们合并在一起。</p>
+<h2 id="一个非常简单的例子"><a href="#一个非常简单的例子" class="headerlink" title="一个非常简单的例子"></a>一个非常简单的例子</h2><p>​    我们来做一个非常简单的例子，有一个按钮，点击一下分成一个随机数，并显示在屏幕上。真的非常简单！但是为了学习 redux 我还是稍微做的复杂了一点。</p>
+<p>首先安装一下 redux ，由于我们是和 react 一起用，所以还有装一个 react 绑定库。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save redux react-redux</div></pre></td></tr></table></figure>
+<p>然后添加一个 action：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//actions.js</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> CHANGE = <span class="string">'change'</span>;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/*  </span></div><div class="line"> 这里我们返回了一个事件(action)，每次我们想要改变 state tree </div><div class="line"> 的时候就调用这个函数。在这里，我们只返回一个 action ，不做其他</div><div class="line"> 的事情，不产生任何的副作用。这样的函数我们叫做 action creater</div><div class="line">*/</div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">newRandom</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">type</span>: CHANGE</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接着我们有一个 reducer：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//reduder.js</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; CHANGE &#125; <span class="keyword">from</span> <span class="string">'../actions/actions'</span></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> reducer 从 store 中接收两个参数：state 和 action ，你也可以为 state 加上默认值。</div><div class="line"> 根据 aciton.type 来改变应用的 state tree (返回新的 state)。</div><div class="line"> 建议默认返回原来的 state ，避免出现问题。</div><div class="line">*/</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">reducer</span>(<span class="params">state = <span class="string">'hello'</span>, action</span>)</span>&#123;</div><div class="line">	<span class="keyword">switch</span> (action.type) &#123;</div><div class="line">		<span class="keyword">case</span> CHANGE:</div><div class="line">			<span class="keyword">return</span> &#123;</div><div class="line">				<span class="attr">text</span>: <span class="built_in">Math</span>.random()</div><div class="line">			&#125;;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">default</span>:</div><div class="line">			<span class="keyword">return</span> state;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来是我们的顶层组件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// app.js</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123; newRandom &#125; <span class="keyword">from</span> <span class="string">'./actions/actions'</span>;</div><div class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</div><div class="line"><span class="keyword">import</span> &#123; bindActionCreators &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> App = React.createClass(&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">const</span> &#123; dispatch &#125; = <span class="keyword">this</span>.props;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;h1&gt;&#123;this.props.text&#125;&lt;/h1&gt;</div><div class="line">                &lt;button onClick=&#123;()=&gt;dispatch(newRandom())&#125;&gt;click me!&lt;/button&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> 这个函数能接收到应用的 state tree ，并且返回我们需要的数据，也就是 props</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mapStateToProps</span>(<span class="params">state</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">text</span>: state.text</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//使用 connect 函数之后，App 组件就会被注入全局的 state 和一个 dispatch 函数</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps)(App)</div></pre></td></tr></table></figure>
+<p>最后是我们的 index 文件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// index.js</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</div><div class="line"><span class="keyword">import</span> reducer <span class="keyword">from</span> <span class="string">'./reducers/reducer'</span>;</div><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./app'</span>;</div><div class="line"></div><div class="line"><span class="comment">//实例化一个 store </span></div><div class="line"><span class="keyword">let</span> store = createStore(reducer);</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> 用 Provider 把我们的顶级组件 App 包裹其中，并传入 store 实例，</div><div class="line"> 这样在 App 中我们就能访问到 store 了。</div><div class="line">*/</div><div class="line">ReactDOM.render(</div><div class="line">	&lt;Provider store=&#123;store&#125;&gt;</div><div class="line">		&lt;App /&gt;</div><div class="line">	&lt;/Provider&gt;,</div><div class="line">	<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>最后，用 webpack 之类的打包工具打包一下，并开启本地服务器，就能在浏览器中访问我们的应用了：</p>
+<p>  <img src="/images/redux01.png" alt="redux01"></p>
+<p>现在，每次点击按钮，都会产生一个随机数：</p>
+<p> <img src="/images/redux02.png" alt="redux02"></p>
+<p>great！我们已经用 react ＋ redux 做出了一个应用！现在来解释一下数据流。</p>
+<ol>
+<li><p>调用<code>store.dispatch(action)</code></p>
+<p>用 dispatch 函数来派发一个 action ，一个 action 就是一个简单的对象。一个 action 至少要有一个表示事件类型的属性，例如 <code>type</code> 。然后，你可以添加任何你需要的属性，就像这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123; </div><div class="line">  <span class="attr">type</span>: <span class="string">'click'</span>,</div><div class="line">  <span class="attr">name</span>: <span class="string">'banana'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>   你可以在任何你需要的地方调用 dispatch ，可以在一个 ajax 的回调函数中，或者一个 setInterval 中。</p>
+<ol>
+<li><p>store 调用 reducer </p>
+<p>还记得我们在实例化 store 的时候传进来了一个 reducer 了吗？我们的 store 会在这个时候调用这个 reducer ，同时传入两个参数：当前的 state tree 和 上一步的 action 。</p>
+<p><strong>强调一下</strong> ：我们的 reducer 只是一个纯函数，它只会计算新的 state 。同时它的行为是可以预测的：同样的输入，每次都会得到同样的输出。它不应该执行任何会有副作用的动作，例如调用API ，路由，网络请求等，这些行为都应该在 dispatch( action ) 之前执行。</p>
+</li>
+<li><p>root reducer 把多个 reducer 的返回值合并成一棵单一的 state tree</p>
+<p>也许你的应用中只有一个 reducer ，但当应用的规模变大的时候，就会需要多个 reducer 来处理不同的逻辑，这时候，你可以用 <code>combineReducers( )</code> 来把多个 <code>reducer</code> 合并成一个 <code>rootReducer</code> 。就像下面这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">todos</span>(<span class="params">state = [], action</span>) </span>&#123;</div><div class="line">   <span class="comment">// Somehow calculate it...</span></div><div class="line">   <span class="keyword">return</span> nextState</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">visibleTodoFilter</span>(<span class="params">state = <span class="string">'SHOW_ALL'</span>, action</span>) </span>&#123;</div><div class="line">   <span class="comment">// Somehow calculate it...</span></div><div class="line">   <span class="keyword">return</span> nextState</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="keyword">let</span> todoApp = combineReducers(&#123;</div><div class="line">   todos,</div><div class="line">   visibleTodoFilter</div><div class="line"> &#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>   当你派发来一个事件的时候，<code>todoApp</code> 就会调用传进来的所有 <code>reducers</code> ，在这里就是 <code>todos()</code> 和 <code>visibleTodoFilter()</code> ，然后把各个 <code>reducer</code> 返回的新的 state 组合成 state tree 。</p>
+<ol>
+<li><p>store 把 root reducer 返回的整棵 state tree 保存起来</p>
+<p>来到这里，你的 app 中就有了一棵新的 state tree 了。这时候，所有用 <code>store.subscribe( listener )</code> 注册的 <code>listener</code> 函数都会被调用，在 <code>listener</code> 函数中，可以调用 <code>store.getState()</code> 来获取到当前的 state ，也就是最新的 state 了。最后，我们的 UI 就会更新，在 react 中，就相当于自动调用了 <code>component.setState()</code>。</p>
+</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/redux-react/">redux react</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

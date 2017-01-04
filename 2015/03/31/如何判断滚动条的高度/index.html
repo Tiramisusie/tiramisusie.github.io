@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>获取滚动条高度 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="在开发过程中有时候我们需要判断滚动条的位置，来执行某些行为。一个典型的例子：制作‘返回顶部’的控件时，我们想控制这个控件在页面向下滚动一定高度的时候才显示，当页面的顶部出现时这个控件隐藏。下面介绍在不同浏览器中获取滚动条高度的方法。">
+  
+
+  
+  
+  <meta name="keywords" content="获取滚动条高度">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="获取滚动条高度"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>获取滚动条高度</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/03/31/如何判断滚动条的高度/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-03-31T03:51:02.000Z">
+          2015-03-31
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>在开发过程中有时候我们需要判断滚动条的位置，来执行某些行为。一个典型的例子：制作‘返回顶部’的控件时，我们想控制这个控件在页面向下滚动一定高度的时候才显示，当页面的顶部出现时这个控件隐藏。下面介绍在不同浏览器中获取滚动条高度的方法。<br><a id="more"></a></p>
+<ul>
+<li><p>在所有现代浏览器中（除了IE8及更早版本），都支持<code>Window</code>对象的<code>pageYOffset</code>和<code>pageXOffset</code>属性。<br><code>pageYOffset</code>用来获取垂直方向上文档滚动的高度。<br><code>pageXOffset</code>获取水平方法都得滚动距离。</p>
+</li>
+<li><p>在IE全系列中都支持<code>scrollTop</code>和<code>scrollLeft</code>属性。但他们不属于<code>Window</code>对象。这里分两种情况：</p>
+<ol>
+<li>正常情况下，通过查询文档的根节点<code>document.documentElement</code>来获取这些属性。（在chrome中这种方法始终返回 0）</li>
+<li>怪异模式下，通过body元素查询<code>document.body.scrollTop</code>。（chrome用这种方法竟然能正常工作）</li>
+</ol>
+</li>
+</ul>
+<p>于是我们可以用以下的代码来实现‘返回顶部’控件的显示和隐藏：</p>
+<pre><code>window.onscroll = function(){
+    var w = window,
+        d = document,
+        scroll = w.pageYOffset || d.documentElement.scrollTop ||d.body.scrollTop;
+    if(scroll&gt;200){
+        //显示控件
+    }else{
+        //隐藏控件
+    }
+}
+</code></pre><p><a href="#header">返回顶部</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/获取滚动条高度/">获取滚动条高度</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

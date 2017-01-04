@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>osx下显示隐藏文件 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="前段时间入手了 MacBook ，虽然游戏性能真的不怎么样，但是用来工作，写代码什么的体验确实很棒，毕竟定位不同嘛。后来发现一个问题，就是要在 osx 中显示隐藏文件，并不能像 windows 一样方便。于是上网收集了一下。">
+  
+
+  
+  
+  <meta name="keywords" content="osx技巧">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="osx下显示隐藏文件"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>osx下显示隐藏文件</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/12/31/osx下显示隐藏文件/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-12-31T03:23:50.000Z">
+          2015-12-31
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>前段时间入手了 MacBook ，虽然游戏性能真的不怎么样，但是用来工作，写代码什么的体验确实很棒，毕竟定位不同嘛。后来发现一个问题，就是要在 osx 中显示隐藏文件，并不能像 windows 一样方便。于是上网收集了一下。</p>
+<a id="more"></a>
+<ol>
+<li><p>使用终端<br>在终端输入以下命令：<br><code>defaults write com.apple.finder AppleShowAllFiles -bool YES</code><br>然后确定。要重启 Finder 才能生效。继续输入一下命令：<br><code>killall Finder</code><br>点击确定。现在再打开 Finder ，就能看到隐藏文件了。<br>如果要恢复隐藏的话，在终端输入以下命令：<br><code>defaults write com.apple.finder AppleShowAllFiles -bool NO</code>。<br>然后同样是重启 Finder ，就能恢复了。</p>
+</li>
+<li><p>在 Finder 的服务中添加一个选项<br>在应用程序中找到 Automator ，打开之后，点击服务。在左侧的资源库中找到<code>Run Shell Script</code>（中文系统是：运行 shell 脚本），把它拖到右侧工作区中，将以下代码粘贴到输入框中：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">STATUS=`defaults read com.apple.finder AppleShowAllFiles` </div><div class="line">if [ $STATUS == YES ]; </div><div class="line">then </div><div class="line">defaults write com.apple.finder AppleShowAllFiles NO </div><div class="line">else </div><div class="line">defaults write com.apple.finder AppleShowAllFiles YES </div><div class="line">fi </div><div class="line">killall Finder</div></pre></td></tr></table></figure>
+<p> 最后在上边的 Service receives 的下拉菜单中选择 ‘no input’ ，然后将工作流程保存为 ‘Toggle Hidden Files’ 。 现在打开 Finder 的服务菜单，就会看到 ‘Toggle Hidden Files’ 这一个选项了。</p>
+<p> <img src="/images/hiddenFiles01.png" alt="hiddenFiles01"></p>
+</li>
+<li><p>在右键菜单中添加一下选项</p>
+<p> 上一个方法是在 Finder 的服务菜单中添加选项，这个方法是在文件夹的右键菜单的服务菜单里面添加一下选项。<br> 前部分跟上一个方法一样，但这次我们在 Service receives 中选择 ‘文件或文件夹’，并在右边选中 Finder 。现在，就可以在 Finder 的右键菜单的服务中找到 ‘Toggle Hidden Files’ 了。 </p>
+<p> <img src="/images/hiddenFiles02.png" alt="hiddenFiles02"></p>
+</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/osx技巧/">osx技巧</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

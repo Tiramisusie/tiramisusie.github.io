@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javascript闭包工作原理 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="闭包是JavaScript的一个重要内容，但我以前一直没搞清楚它的工作原理，直到看到了一篇文章。
+下面就简单的概括一下。">
+  
+
+  
+  
+  <meta name="keywords" content="javascript">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="javascript闭包工作原理"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>javascript闭包工作原理</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/10/12/javascript闭包工作原理/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-10-12T12:18:55.000Z">
+          2015-10-12
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>闭包是JavaScript的一个重要内容，但我以前一直没搞清楚它的工作原理，直到看到了<a href="http://blog.leapoahead.com/2015/09/15/js-closure/" target="_blank" rel="external">一篇文章</a>。</p>
+<p>下面就简单的概括一下。</p>
+<a id="more"></a>
+<h2 id="作用域链（scope-chain）"><a href="#作用域链（scope-chain）" class="headerlink" title="作用域链（scope chain）"></a>作用域链（scope chain）</h2><p>在JavaScript中，每一个function都有一个对应的<em>作用域对象</em>，用来保存function中的局部变量以及参数。你可以把这个<em>作用域对象</em>想象成一个普通的JavaScript对象，但你不能直接获取这个对象，你只能修改它的属性（也就是修改局部变量）。当你在函数外部定义变量时，这些变量就会添加到全局对象中，这些变量就是我们平常说的全局变量。显然，全局变量的作用域就是全局对象。</p>
+<p>当在function中嵌套另一个function的时候，就会出现<em>父级作用域</em>。把所有的作用域对象像链条一样一个一个的链接起来就形成了一个<em>作用域链</em>。作用域的顶部是一个全局对象。当JavaScript中的function需要查找（或者叫做变量解析）某一个变量x的时候，它首先会在当前函数的<em>作用域对象</em>里面查找，如果没有找到，就会在它的父级作用域对象中一级一级的往上查找。如果到最后还是没有找到，就会抛出一个错误：<code>ReferenceError</code>。</p>
+<p>在这里可以引出一个关于JavaScript性能优化的小tips：当你需要在一个函数中多次的引用一个外部变量时，可以先把它保存在一个局部变量中，再对这个局部变量进行操作。这样就可以省去在父级作用域中多次查找变量的时间。</p>
+<h2 id="对作用域的引用"><a href="#对作用域的引用" class="headerlink" title="对作用域的引用"></a>对作用域的引用</h2><p>有一下一段代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> myfunc = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> bar = <span class="number">2</span>;</div><div class="line">    <span class="keyword">var</span> innerfunc()&#123;</div><div class="line">        <span class="built_in">console</span>.log(foo);</div><div class="line">    &#125;</div><div class="line">    innerfunc();</div><div class="line">&#125;</div><div class="line">myfunc();</div></pre></td></tr></table></figure></p>
+<p>当函数被定义时，这个函数的标识符就会被添加到当前作用域中（在上面的代码中就是全局作用域），标识符所引用的是一个函数对象，这个函数对象包含了函数的源代码和一些内部属性，其中一个我们关心的就是[[scope]]。[[scope]]所引用的是这个函数在定义时所能直接访问的作用域（这里是全局作用域）。如果函数是嵌套在另外一个函数中，那么它的[[scope]]就是指向外层函数的作用域。这一点对于理解闭包<strong>很重要！</strong></p>
+<p>我们知道，在<code>myfunc</code>被调用的时候会创建一个新的作用域，用来保存局部变量和参数，这个作用域的父级作用域就是定义<code>myfunc</code>时所处的作用域，也就是 myfunc 的[[scope]]所指向的作用域。</p>
+<p>调用<code>myfunc</code>时,会在内部调用<code>innerfunc</code>，这时JavaScript需要在<code>innerfunc</code>的作用域中查找<code>foo</code>,没找到，于是在<code>innerfunc</code>的[[scope]]所指向的作用域（也就是<code>myfunc</code>的作用域）中查找，还是没找到，继续在<code>myfunc</code>的[[scope]]所指向的作用域（全局作用域）中查找，找到了<code>foo = 1</code>，查找结束。</p>
+<p>当函数执行完并返回的时候，再也没有一个对象会引用它的作用域，这个作用域就可以被垃圾回收器回收，因此也就不能继续访问函数内部的变量了。上面的代码中，当<code>myfunc</code>执行完毕并返回后，就不能再访问它内部的<code>bar</code>了。</p>
+<h2 id="返回引用"><a href="#返回引用" class="headerlink" title="返回引用"></a>返回引用</h2><p>上面讨论到了，在函数调用结束并返回之后，由于它的作用域会被回收而不能继续访问它的局部变量。假设我们把函数作用域的引用返回，并保存在一个外部的变量里，是不是就意味着可以继续访问函数的局部变量呢？答案是肯定的，这也就是我们平常说的闭包所做的事情了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> counter = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line">    <span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        a++;</div><div class="line">        <span class="built_in">console</span>.log(a);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> add;</div><div class="line">&#125; </div><div class="line"><span class="keyword">var</span> myCounter = counter();</div><div class="line">myCounter()     <span class="comment">//2</span></div><div class="line">myCounter()     <span class="comment">//3</span></div><div class="line">myCounter()     <span class="comment">//4</span></div></pre></td></tr></table></figure>
+<p>上面是一个简单的闭包。调用<code>counter</code>的时候<code>counter</code>函数返回了一个<code>add</code>函数并赋值给<code>myCounter</code>，使得<code>myCounter</code>指向了<code>add</code>。同时，由于<code>add</code>的[[scope]]保存了对<code>counter</code>作用域的引用，所以即使在counter调用结束了，<code>myCounter</code>依然可以访问到<code>counter</code>中的变量<code>a</code>。</p>
+<p>需要注意的是作用域链是不会被复制的，每次函数调用只会往作用域链下面新增一个作用域对象。</p>
+<p>有一个经典的闭包例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</div><div class="line">	arr[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> i&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当依次调用<code>arr[0](),arr[1](),arr[2]()</code>的时候会得到什么结果呢？</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>闭包是什么？<br>闭包是一个对象，它包含了对函数对象的引用以及对作用域对象的引用，所以可以通过闭包在函数外部访问到函数内部的局部变量。实际上，JavaScript所有的对象都是闭包。</p>
+<p>闭包什么时候被创建和销毁？<br>由于所有JavaScript对象都是闭包，所以在定义一个函数的时候就创建了一个闭包；而当这个闭包没有被任何对象引用的时候它就会被销毁。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/javascript/">javascript</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

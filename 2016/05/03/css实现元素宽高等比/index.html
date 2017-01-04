@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>css实现元素宽高等比 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="实现如何用纯 css 实现元素的宽高等比？方法很简单，代码如下：
+html :123&amp;lt;div class=&amp;quot;out&amp;quot;&amp;gt;  &amp;lt;div class=&amp;quot;in&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;/div&amp;gt;
+css :12345678910">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="css实现元素宽高等比"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>css实现元素宽高等比</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/05/03/css实现元素宽高等比/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-05-03T06:04:44.000Z">
+          2016-05-03
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>如何用纯 css 实现元素的宽高等比？方法很简单，代码如下：</p>
+<p>html :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;out&quot;&gt;</div><div class="line">  &lt;div class=&quot;in&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>css :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.out&#123;</div><div class="line">  position: relative;</div><div class="line">  width: 50%;</div><div class="line">  padding-bottom: 50%;</div><div class="line">&#125;</div><div class="line">.in&#123;</div><div class="line">  position: absolute;</div><div class="line">  left: 0;</div><div class="line">  top: 0;</div><div class="line">  right: 0;</div><div class="line">  bottom: 0;</div><div class="line">  background-color: #4AE3B5;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h3><p>这里的关键点就是 <code>padding-bottom</code> 这个属性。当它的值为百分比的时候，它参照的是这个元素的包含块的宽度。</p>
+<p>在这里，我们把元素的 <code>width</code>，<code>padding-bottom</code> 的值设置成相等的<strong>百分比</strong>，那么最终计算出来的<code>width</code> 和 <code>padding-bottom</code> 的值也是一样的。同时，由于没有显式的设置 <code>height</code>，所以元素的高度就是 <code>padding-bottom</code> 的值。这样就可以在不同宽度下实现元素的宽高等比了。</p>
+<p>把 <code>padding-bottom</code> 换成 <code>padding-top</code> 也有同样的效果。</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

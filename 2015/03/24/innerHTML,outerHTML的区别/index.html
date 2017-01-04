@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>innerHTML, outerHTML, innerText, outerText之间的区别 | Hexo</title>
+
+  
+  <meta name="author" content="John Doe">
+  
+
+  
+  <meta name="description" content="之前一直迷惑innerHTML，outerHTML以及outerText，innerText之间的关系。今天自己写了一些代码然后总结一下。">
+  
+
+  
+  
+  <meta name="keywords" content="javascript">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="innerHTML, outerHTML, innerText, outerText之间的区别"/>
+
+  <meta property="og:site_name" content="Hexo"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Hexo</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/archives">Archives</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>innerHTML, outerHTML, innerText, outerText之间的区别</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/03/24/innerHTML,outerHTML的区别/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-03-24T15:34:43.000Z">
+          2015-03-24
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p><span id="head"></span><br>之前一直迷惑<code>innerHTML</code>，<code>outerHTML</code>以及<code>outerText</code>，<code>innerText</code>之间的关系。今天自己写了一些代码然后总结一下。</p>
+<a id="more"></a>
+<p>html:</p>
+<pre><code>&lt;div id=&quot;outerDiv&quot;&gt;
+    i&apos;m outer div
+    &lt;div id=&quot;innerDiv&quot;&gt;
+        i&apos;m inner div
+        &lt;p id=&quot;innerP&quot;&gt;
+            i&apos;m inner p
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>执行以下语句:</p>
+<pre><code>var outerDiv = document.getElementById(&apos;outerDiv&apos;);
+var innerDiv = document.getElementById(&apos;innerDiv&apos;);
+var innerP = document.getElementById(&apos;innerP&apos;);
+
+outerDiv.innerHTML;
+</code></pre><p>得到：</p>
+<pre><code>&quot;
+    i&apos;m outer div
+    &lt;div id=&quot;innerDiv&quot;&gt;
+        i&apos;m inner div
+        &lt;p id=&quot;innerP&quot;&gt;
+            i&apos;m inner p
+        &lt;/p&gt;
+    &lt;/div&gt;
+&quot;
+</code></pre><p> 执行语句：</p>
+<pre><code>outerDiv.outerHTML;
+</code></pre><p>输出结果：</p>
+<pre><code>&quot;&lt;div id=&quot;outerDiv&quot;&gt;
+    i&apos;m outer div
+    &lt;div id=&quot;innerDiv&quot;&gt;
+        i&apos;m inner div
+        &lt;p id=&quot;innerP&quot;&gt;
+            i&apos;m inner p
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&quot;
+</code></pre><p>而执行以下两条语句</p>
+<pre><code>outerDiv.innerText;
+outerDiv.outerText;
+</code></pre><p>将会得到相同的输出：</p>
+<pre><code>&quot;i&apos;m outer div
+i&apos;m inner div
+i&apos;m inner p&quot;
+</code></pre><p>而事实上</p>
+<pre><code>outerDiv.innerText === outerDiv.outerText
+</code></pre><p>结果为<em>true</em>。</p>
+<p>因此可以总结出以下几点：</p>
+<ul>
+<li><code>outerText</code>和<code>innerText</code>包含的是当前对象中的所有文本，包括嵌套的文本；</li>
+<li><code>innerHTML</code>的范围是当前对象中包含的所有标签和文本，包括嵌套的，但不包括当前对象自身的标签；</li>
+<li><code>outerHTML</code>是在<code>innerHTML</code>的基础上加上自身标签；</li>
+<li>还应该注意到这几个属性的值都是字符串。</li>
+</ul>
+<p><a href="#header">返回顶部</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/javascript/">javascript</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 John Doe
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
