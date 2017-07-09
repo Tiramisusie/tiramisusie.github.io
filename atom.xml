@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Tiramisusie&#39;s blog</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-02-18T03:45:05.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Ningcong.Liang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vi使用入门</title>
+    <link href="http://yoursite.com/2016/10/27/vi%E4%BD%BF%E7%94%A8%E5%85%A5%E9%97%A8/"/>
+    <id>http://yoursite.com/2016/10/27/vi使用入门/</id>
+    <published>2016-10-27T11:32:56.000Z</published>
+    <updated>2017-02-18T03:45:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>一直都想学 vim ，但是又没找到合适的教程。刚好这两天在看《鸟哥的 Linux 私房菜》，里面就有一章是讲 vim 的用法，而且说得通俗易懂。这下终于可以入坑 vim 了！</p>
+<a id="more"></a>
+<h2 id="vi-？vim-？"><a href="#vi-？vim-？" class="headerlink" title="vi ？vim ？"></a>vi ？vim ？</h2><p>之前一直以为 vi 和 vim 就是一个东西，虽然还是可以认为它们就是同一个东西，但其实 vi 是一个更加古老一点的文字编辑器。而 vim 是 vi 的一个进阶版，专注于「程序编辑」。</p>
+<p>根据 vim 官网的介绍，多数的 Unix 系统和 macOX 里面，vim 已经集成到系统里面，并且就叫做 vi。所以下面说的「vi」和「vim」是同一个意思。</p>
+<h2 id="使用-vi"><a href="#使用-vi" class="headerlink" title="使用 vi"></a>使用 vi</h2><p>在 shell 或者其他命令行工具中输入命令 <code>vi [filename]</code> 就可以在 vi 模式下打开文件了。注意，在输入文件名的时候要输入后缀名。否则不能打开你希望的文件。当你想打开的文件不存在的时候，就会自动新建一个文件。</p>
+<h3 id="vi-的三种模式"><a href="#vi-的三种模式" class="headerlink" title="vi 的三种模式"></a>vi 的三种模式</h3><p>在 vi 中，有三种模式：一般模式、编辑模式、指令模式</p>
+<h4 id="1、一般模式"><a href="#1、一般模式" class="headerlink" title="1、一般模式"></a>1、一般模式</h4><p>在命令行使用命令<code>vi [filename]</code>进入的界面就是「一般模式」。在这个模式下，可以进行以下的操作：</p>
+<ul>
+<li>光标的移动；</li>
+<li>搜索与替换；</li>
+<li>删除、复制、粘贴；</li>
+</ul>
+<p>在一般模式下，不能直接进行文字的输入。如果要输入文字，要先转换到「编辑模式」。</p>
+<h4 id="2、编辑模式"><a href="#2、编辑模式" class="headerlink" title="2、编辑模式"></a>2、编辑模式</h4><p>在一般模式下，按下 <code>i</code>，<code>o</code>，<code>a</code> 等字符都可以进入「编辑模式」。进入编辑模式后，会在左下角出现 <code>— INSERT --</code> 的字样。按下 <code>ESC</code> 可以回到「一般模式」。</p>
+<p>在编辑模式下，可以像在普通的编辑器里面一样编辑文字。</p>
+<h4 id="3、指令模式"><a href="#3、指令模式" class="headerlink" title="3、指令模式"></a>3、指令模式</h4><p>在一般模式下，输入冒号 <code>:</code> 会进入「指令模式」。同样可以按 <code>ESC</code> 来回到一般模式中。在指令模式下，可以进行保存、退出 vi 等操作。</p>
+<p>关于 vi 的三种模式，需要注意的是：「一般模式」可以进入「编辑模式」或者「指令模式」，「编辑模式」和「指令模式」都可以通过 <code>ESC</code> 回到「一般模式」。但「编辑模式」和「指令模式」之间不能直接进行切换，要先回到「一般模式」。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直都想学 vim ，但是又没找到合适的教程。刚好这两天在看《鸟哥的 Linux 私房菜》，里面就有一章是讲 vim 的用法，而且说得通俗易懂。这下终于可以入坑 vim 了！&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vi,vim" scheme="http://yoursite.com/tags/vi-vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>元素居中方法收集</title>
+    <link href="http://yoursite.com/2016/10/27/%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://yoursite.com/2016/10/27/元素居中的实现/</id>
+    <published>2016-10-27T11:19:31.000Z</published>
+    <updated>2017-02-26T02:21:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>元素居中不仅是一种技术，更是一种艺术。它主要分成水平方向的居中和垂直方向的居中。由于在开发中经常会遇到，所以从网上收集了一些实现元素居中的方法。</p>
+<a id="more"></a>
+<ol>
+<li><p>相对定位元素实现水平居中<br>先上代码：</p>
+<pre><code>.floatMiddle{
+    width: 50px;
+    position: relative;
+    left: 50%;
+    margin-left: -25px;
+}
+</code></pre><p>这种方法关键的地方在于对元素相对定位之后，设置<code>left</code>的值为50%，然后设置<code>margin-left</code>的值为 <code>-（width/2）</code>。<code>left</code>的值为50%的时候，定位元素的左边界就在父元素的中轴上。如图：<br><img src="/images/middle1.png" alt="图1"><br>这个时候设置<code>margin-left</code>值为<code>-（width/2）</code>会使定位元素向左移动，移动的距离刚好使得定位元素的中轴与父元素的中轴重叠，也就是水平居中。效果如图所示：<br><img src="/images/middle2.png" alt="图2"></p>
+<p>另外，我们可以扩展一下，用这种方法实现垂直居中。只需要再添加几行代码：</p>
+<pre><code>.floatMiddle{
+    width: 50px;
+    height: 40px;   //显示地设置高度
+    position: relative;
+    left: 50%;
+    margin-left: -25px;
+    top: 50%;               //设置垂直居中
+    margin-top: -20px;      //
+}
+</code></pre><p>这种方法的好处在于兼容性强，简单，而且不受父元素定位的限制。但一定要知道居中元素的宽度和高度。</p>
+</li>
+</ol>
+<p><a href="#header">返回顶部</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;元素居中不仅是一种技术，更是一种艺术。它主要分成水平方向的居中和垂直方向的居中。由于在开发中经常会遇到，所以从网上收集了一些实现元素居中的方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="元素居中" scheme="http://yoursite.com/tags/%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React开发环境配置</title>
+    <link href="http://yoursite.com/2016/06/08/React%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2016/06/08/React开发环境配置/</id>
+    <published>2016-06-08T08:15:44.000Z</published>
+    <updated>2017-01-04T06:07:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>自从2015年开始接触ReactJS以后，就爱上了React。不过这篇文章不是要介绍React，而是介绍React开发环境的配置。</p>
+<p>最初用React的时候，是用<a href="http://browserify.org/" target="_blank" rel="external">browserify</a>来打包，后来听说<a href="https://webpack.github.io/" target="_blank" rel="external">webpack</a>之后，就果断转向webpack。以下是我配置react开发环境的过程。</p>
+<a id="more"></a>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>我的目录结构如下。</p>
+<p><img src="/images/react01.jpg" alt="目录结构"></p>
+<h2 id="Babel"><a href="#Babel" class="headerlink" title="Babel"></a>Babel</h2><p>babel是一个优秀JavaScript编译工具。能够把多种JavaScript衍生语言（coffeeScript，TypeScript等）和下一代的JavaScript（ES6）编译成能够直接运行的原生js。在React的项目中，我们一般需要以下几个babel presets。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save-dev babel-core babel-preset-es2015 babel-preset-react babel-preset-react-hmre babel-preset-stage-0</div></pre></td></tr></table></figure>
+<p>有了所需要的包以后，还要有相应的配置，以启用上面安装的包。babel的配置可以直接写在<code>package.json</code>的<code>presets</code>参数中，但我比较喜欢用<code>.babelrc</code>配置文件。</p>
+<p>在项目的根目录下新建一个<code>.babelrc</code>文件，然后添加以下配置。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"presets"</span>: [<span class="string">"es2015"</span>, <span class="string">"stage-0"</span>, <span class="string">"react"</span>]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在开发的过程中，我们需要用到react的模块热加载功能来提高开发效率，也就是要启用babel的<code>react-hmre</code>这个preset。但如果在开发完成，进行部署的时候启用了这个preset，就会报错。于是我们就要根据当前所处的环境（开发或者部署）来觉得是否启用这个preset。babel中的<code>env</code>参数可以帮我们完成以上工作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"presets"</span>: [<span class="string">"es2015"</span>, <span class="string">"stage-0"</span>, <span class="string">"react"</span>],</div><div class="line">  <span class="string">"env"</span>: &#123;</div><div class="line">    <span class="string">"development"</span>: &#123;</div><div class="line">      <span class="string">"presets"</span>: [<span class="string">"react-hmre"</span>]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><p>webpack是一个很好用的工具，但不得不承认，它的配置是一件很痛苦的事情。但是有了<a href="https://github.com/HenrikJoreteg/hjs-webpack" target="_blank" rel="external">hjs-webpack</a>这个工具之后，一切都变得简单很多了。</p>
+<p><code>hjs-webpack</code>是一个配置webpack的工具。它对外提供了很多简单的接口，这些接口调用的结果是生成一份对应的webpack配置文件。最强大的地方是，<code>hjs-webpack</code>已经帮我们设置好了很多loader的配置，当我们需要用到的时候，只需要<code>npm install</code>一下对应的包就可以了，免去自己再写loader的相关配置这一步骤。具体的用法下面会介绍到。<code>hjs-webpack</code>所支持的loader可以在<a href="https://github.com/HenrikJoreteg/hjs-webpack" target="_blank" rel="external">这里</a>查看。</p>
+<p>接下来，在项目的根目录下新建一个<code>webpack.config.js</code>来开始webpack的配置。</p>
+<p>在<code>hjs-webpack</code>中，提供了两个参数：<code>in</code>和<code>out</code>分别对应webpack中的<code>entry</code>和<code>output</code>。因此，最简单的配置就能像下面这样。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> getConfig = <span class="built_in">require</span>(<span class="string">'hjs-webpack'</span>);</div><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</div><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> config = getConfig(&#123;</div><div class="line">  <span class="attr">in</span>: path.join(__dirname, <span class="string">'src/app.js'</span>),</div><div class="line">  <span class="attr">out</span>: path.join(__dirname, <span class="string">'dist'</span>),</div><div class="line">  <span class="attr">clearBeforeBuild</span>: <span class="literal">true</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>其中<code>clearBeforeBuild</code>参数可以在构建新文件之前把旧文件都清除掉。</p>
+<p>有时候，有些开发者喜欢把常用的路径都存储在一些变量中，方便使用。这里就不多说了。</p>
+<p>在上面我们提到，在development和production两个环境中会分别应用不同的配置。在这里，我们有一个参数<code>isDev</code>来告诉webpack我们是否处于development环境中。另外，我们还需要根据<code>NODE_ENV</code>这个参数来判断我们所处的环境。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> NODE_ENV = process.env.NODE_ENV;</div><div class="line"><span class="keyword">var</span> isDev = NODE_ENV === <span class="string">'development'</span>;</div><div class="line"><span class="keyword">var</span> config = getConfig(&#123;</div><div class="line">  <span class="attr">isDev</span>: isDev,</div><div class="line">  <span class="attr">in</span>: path.join(__dirname, <span class="string">'src/app.js'</span>),</div><div class="line">  <span class="attr">out</span>: path.join(__dirname, <span class="string">'dist'</span>),</div><div class="line">  <span class="attr">clearBeforeBuild</span>: <span class="literal">true</span></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>最后，我们还需要export一下这个配置。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> config = getConfig(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="built_in">module</span>.exports = config;</div></pre></td></tr></table></figure>
+<h2 id="React"><a href="#React" class="headerlink" title="React"></a>React</h2><p>在<code>src</code>文件夹下新建一个<code>app.js</code>文件，然后写一个React组件。这部分不是这篇文章的重点，就不多说了。</p>
+<h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><p>以前，我们会使用webpack提供的<code>webpack-dev-server</code>来开启一个本地服务器。在<code>hjs-webpack</code>中，提供了一个<code>hjs-dev-server</code>命令。其实最终结果跟<code>webpack-dev-server</code>差不多，只是过程简单了很多。</p>
+<p>在命令行中输入命令<code>hjs-dev-server</code>就能开始构建过程了。也可以把这个命令写在<code>package.json</code>中。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="string">"scripts"</span>: &#123;</div><div class="line">  <span class="string">"start"</span>: <span class="string">"NODE_ENV=development hjs-dev-server"</span>,</div><div class="line">  <span class="string">"build"</span>: <span class="string">"webpack"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行命令<code>npm start</code>。</p>
+<p>如果没有报错的话，在浏览器中访问<code>localhost:3000</code>就能看到我们的应用了。当然，我们可以把端口改成自己喜欢的。详细配置看<a href="https://github.com/HenrikJoreteg/hjs-webpack" target="_blank" rel="external">这里</a>。</p>
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><p>在webpack中，如果要应用CSS，就要用loader。而我们刚刚也提到，在<code>hjs-webpack</code>中已经配置了<code>css-loader</code>了，我们只需要<code>npm install</code>一下，然后在<code>app.js</code>中加载我们的css文件就可以了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save-dev css-loader style-loader</div></pre></td></tr></table></figure>
+<p>然后在<code>app.js</code>中导入css文件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> <span class="string">'./style/app.css'</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</div><div class="line">  	render() &#123;</div><div class="line">    	<span class="keyword">return</span> (</div><div class="line">				&lt;h1&gt;Hello, world.....&lt;/h1&gt;</div><div class="line">    	);</div><div class="line">  	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactDOM.render(&lt;App /&gt;, document.getElementById('root'));</div></pre></td></tr></table></figure>
+<p>这样我们就能应用样式了！</p>
+<p>在<code>hjs-webpack</code>中，包含了对<code>autoprefixer</code>这样的<code>postcss</code>插件的支持，但如果你想要使用其他的插件，如<code>cssnano</code>，就要自己去扩展或者说修改webpack配置。在上面的配置中，<code>hjs-webpack</code>会返回一个webpack的配置对象：<code>config</code>。我们就可以在这个对象的基础上进行修改配置。</p>
+<p>例如我们需要使用<code>cssnano</code>和<code>precss</code>这两个postcss的插件，可以这么配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> config = getConfig(&#123;</div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line">config.postcss = [].concat([</div><div class="line">  <span class="built_in">require</span>(<span class="string">'precss'</span>)(&#123;&#125;),</div><div class="line">  <span class="built_in">require</span>(<span class="string">'cssnano'</span>)(&#123;&#125;)</div><div class="line">])</div></pre></td></tr></table></figure>
+<p>到此，我们的开发环境的配置已经基本完成了。如果想了解更多用法，可以参考<a href="https://www.fullstackreact.com/articles/react-tutorial-cloning-yelp/" target="_blank" rel="external">这里</a>。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文主要是介绍了React + webpack的开发环境的配置方法，过程中使用了<code>hjs-webpack</code>这个工具来简化了webpack的配置。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.fullstackreact.com/articles/react-tutorial-cloning-yelp/" target="_blank" rel="external">React Tutorial: Cloning Yelp</a></p>
+<p><a href="https://github.com/HenrikJoreteg/hjs-webpack" target="_blank" rel="external">hjs-webpack</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;自从2015年开始接触ReactJS以后，就爱上了React。不过这篇文章不是要介绍React，而是介绍React开发环境的配置。&lt;/p&gt;
+&lt;p&gt;最初用React的时候，是用&lt;a href=&quot;http://browserify.org/&quot;&gt;browserify&lt;/a&gt;来打包，后来听说&lt;a href=&quot;https://webpack.github.io/&quot;&gt;webpack&lt;/a&gt;之后，就果断转向webpack。以下是我配置react开发环境的过程。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>express+webpack for react</title>
+    <link href="http://yoursite.com/2016/05/09/express-webpack-for-react/"/>
+    <id>http://yoursite.com/2016/05/09/express-webpack-for-react/</id>
+    <published>2016-05-09T07:02:19.000Z</published>
+    <updated>2017-02-26T02:21:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在做毕业设计，用到了 reactJs， express，mongoDB，然后用 webpack 作为构建工具。每次开始工作的时候都要先开启三个命令行窗口或标签页，分别用来启动 mongoDB，express 和 webpack构建命令。但是觉得每次都要开三个窗口太麻烦了，于是就想着能不能把 express 和 webpack 的启动放在一起。</p>
+<a id="more"></a>
+<p>Google 了一下之后果然找到了办法。</p>
+<h2 id="webpack-middleware"><a href="#webpack-middleware" class="headerlink" title="webpack middleware"></a>webpack middleware</h2><p>这里主要用到了 webpack 的一个中间件：<code>webpack-dev-middleware</code>。</p>
+<p><strong>提醒一下</strong>，如果你原来是用 <code>webpack-dev-server</code> 的话，最好先 uninstall 一下，不然可能会出错。其实，<code>webpack-dev-server</code> 在内部也是用到了 <code>webpack-dev-middleware</code> ，我们这里只是把它独立出来使用。</p>
+<p>可能用人会问，<code>webpack-dev-server</code> 不也是内置了 express 的功能吗？为什么不直接用？我开始的时候也是这样想，但后来发现，这个内置的「express」好像只具备「server」的功能，没有处理网络请求的功能，所以当我在前端就不能正确的访问数据库。（当然也有可能是我的配置不对）</p>
+<p>另外，还用到了另一个中间件：<code>webpack-hot-middleware</code>。由于没有<code>webpack-dev-server</code> ，所以用这个中间件来提供「hot reload」的功能。</p>
+<h2 id="webpack-配置文件"><a href="#webpack-配置文件" class="headerlink" title="webpack 配置文件"></a>webpack 配置文件</h2><p>主要是 entry 的配置：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">entry: [</div><div class="line">  <span class="string">'webpack-hot-middleware/client'</span>,</div><div class="line">  <span class="string">'webpack/hot/dev-server'</span></div><div class="line">  <span class="string">'./src/index.js'</span></div><div class="line">],</div></pre></td></tr></table></figure>
+<h2 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> app = express();</div><div class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</div><div class="line"><span class="keyword">var</span> WebpackDevMiddleware = <span class="built_in">require</span>(<span class="string">'webpack-dev-middleware'</span>);</div><div class="line"><span class="keyword">var</span> WebpackHotMiddleware = <span class="built_in">require</span>(<span class="string">'webpack-hot-middleware'</span>);</div><div class="line"><span class="keyword">var</span> config = <span class="built_in">require</span>(<span class="string">'./webpack.config'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> compiler = webpack(config);</div><div class="line"></div><div class="line">app.use(WebpackDevMiddleware(compiler, &#123;</div><div class="line">  <span class="attr">publicPath</span>: config.output.publicPath,</div><div class="line">  <span class="attr">historyApiFallback</span>: <span class="literal">true</span>,</div><div class="line">  <span class="attr">stats</span>: &#123;<span class="attr">colors</span>: <span class="literal">true</span>&#125;</div><div class="line">&#125;));</div><div class="line"></div><div class="line">app.use(WebpackHotMiddleware(compiler));</div><div class="line"></div><div class="line">app.listen(<span class="number">3000</span>)；</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在做毕业设计，用到了 reactJs， express，mongoDB，然后用 webpack 作为构建工具。每次开始工作的时候都要先开启三个命令行窗口或标签页，分别用来启动 mongoDB，express 和 webpack构建命令。但是觉得每次都要开三个窗口太麻烦了，于是就想着能不能把 express 和 webpack 的启动放在一起。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="express webpack react" scheme="http://yoursite.com/tags/express-webpack-react/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>css实现元素宽高等比</title>
+    <link href="http://yoursite.com/2016/05/03/css%E5%AE%9E%E7%8E%B0%E5%85%83%E7%B4%A0%E5%AE%BD%E9%AB%98%E7%AD%89%E6%AF%94/"/>
+    <id>http://yoursite.com/2016/05/03/css实现元素宽高等比/</id>
+    <published>2016-05-03T06:04:44.000Z</published>
+    <updated>2017-02-26T02:23:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>如何用纯 css 实现元素的宽高等比？<a id="more"></a></p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>方法很简单，代码如下：</p>
+<p>html :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;out&quot;&gt;</div><div class="line">  &lt;div class=&quot;in&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>css :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.out&#123;</div><div class="line">  position: relative;</div><div class="line">  width: 50%;</div><div class="line">  padding-bottom: 50%;</div><div class="line">&#125;</div><div class="line">.in&#123;</div><div class="line">  position: absolute;</div><div class="line">  left: 0;</div><div class="line">  top: 0;</div><div class="line">  right: 0;</div><div class="line">  bottom: 0;</div><div class="line">  background-color: #4AE3B5;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h3><p>这里的关键点就是 <code>padding-bottom</code> 这个属性。当它的值为百分比的时候，它参照的是这个元素的包含块的宽度。</p>
+<p>在这里，我们把元素的 <code>width</code>，<code>padding-bottom</code> 的值设置成相等的<strong>百分比</strong>，那么最终计算出来的<code>width</code> 和 <code>padding-bottom</code> 的值也是一样的。同时，由于没有显式的设置 <code>height</code>，所以元素的高度就是 <code>padding-bottom</code> 的值。这样就可以在不同宽度下实现元素的宽高等比了。</p>
+<p>把 <code>padding-bottom</code> 换成 <code>padding-top</code> 也有同样的效果。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如何用纯 css 实现元素的宽高等比？
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>javascript数组降维</title>
+    <link href="http://yoursite.com/2016/02/19/javascript%E6%95%B0%E7%BB%84%E9%99%8D%E7%BB%B4/"/>
+    <id>http://yoursite.com/2016/02/19/javascript数组降维/</id>
+    <published>2016-02-19T05:08:27.000Z</published>
+    <updated>2016-10-27T11:19:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天看到了一篇文章，<a href="http://www.cnblogs.com/front-end-ralph/p/4871332.html" target="_blank" rel="external">《优雅的数组降维——Javascript中apply方法的妙用》</a>。里面介绍了3种多维数组降维的方法，个人感觉比较实用，于是记录一下。</p>
+<a id="more"></a>
+<p>下面以二维数组转一维数组为例来说明。</p>
+<h3 id="1、一般的转换"><a href="#1、一般的转换" class="headerlink" title="1、一般的转换"></a>1、一般的转换</h3><p>看到数组降维，我们可能首先就想到用循环，这也是最直观最简单的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">reduceDimension</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> reduced = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; arr[i].length; j++) &#123;</div><div class="line">            reduced.push(arr[i][j]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> reduced;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个方法的思路很简单，利用嵌套的循环来遍历二维数组中的每一个元素。</p>
+<h3 id="2、利用-concat"><a href="#2、利用-concat" class="headerlink" title="2、利用 concat()"></a>2、利用 concat()</h3><p>js 的 concat() 函数用于拼接数组，它的参数可以是一个元素也可以是一个数组，如果是数组的话，数组中的每一个元素都会按照顺序拼接到新的数组的尾部。对于二维数组来说，arr[i] 就是一个数组。因此 arr[i] 就可以作为 concat() 的参数来，于是我们可以改进一下第一种方法，省去了内层的循环。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">reduceDimension</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> reduced = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arr.length; i++)&#123;</div><div class="line">        reduced = reduced.concat(arr[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> reduced;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3、利用-concat-和-apply"><a href="#3、利用-concat-和-apply" class="headerlink" title="3、利用 concat() 和 apply()"></a>3、利用 concat() 和 apply()</h3><p>concat() 的参数可以只有一个，也可以有多个，如果是多个参数的话，就会按顺序进行拼接。我们的二维数组 arr，从另一种角度来看也是一维数，它的每一个元素都是一个数组，我们现在只需要把它的每一个元素（数组）作为参数，一次过传给 concat()，这样就可以不用循环了。</p>
+<p>所以现在的问题就是怎么样<strong>不用</strong>循环把 arr 包含的多个数组一次过传给 concat()。幸运的是在 js 里面我们有 apply() 函数。apply() 函数的第二个参数是一个数组，这个数组中的每一个元素会依次作为被调用函数的参数。利用这个特点，我们就可以解决上面的问题了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">reduceDimension</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.prototype.concat.apply([], arr);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//对于二维数组，arr = [[1,2], [3,4], [5,6]]</span></div><div class="line"><span class="comment">//上面的函数就相当于下面的函数</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">reduceDimension</span>(<span class="params">arr</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> [].concat(arr[<span class="number">0</span>], arr[<span class="number">1</span>], arr[<span class="number">2</span>]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>相对于前面两种方法，第三种方法显得更加简单，巧妙。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今天看到了一篇文章，&lt;a href=&quot;http://www.cnblogs.com/front-end-ralph/p/4871332.html&quot;&gt;《优雅的数组降维——Javascript中apply方法的妙用》&lt;/a&gt;。里面介绍了3种多维数组降维的方法，个人感觉比较实用，于是记录一下。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用mongoose操作MongoDB(一)</title>
+    <link href="http://yoursite.com/2016/01/06/%E7%94%A8mongoose%E6%93%8D%E4%BD%9CmongoDB(%E4%B8%80)/"/>
+    <id>http://yoursite.com/2016/01/06/用mongoose操作mongoDB(一)/</id>
+    <published>2016-01-06T01:58:14.000Z</published>
+    <updated>2017-02-26T02:21:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在做一个课程设计，想做一个单页应用。但我是学前端的，后端知识比较缺乏，所以有点苦恼后端要怎么实现。正好前阵子看到了一本书，《单页 web 应用 javascript 从前端到后端》(写得挺详细的一本书，推荐一下)，受到了启发，于是决定用 nodejs 做后端。</p>
+<a id="more"></a>
+<p>这篇文章主要是讲一下在数据库方面的使用。其实我自己对于数据库是不太懂，这次的设计算是我第一次真正意义上的使用数据库，而且还是我自己一步一步摸索（瞎搞）出来的，有不对的地方请多多指教。</p>
+<p>数据库我是用 <a href="https://www.mongodb.org/" target="_blank" rel="external">MongoDB</a> 。因为 mongoDB 的存储格式是 JSON ，比较适合单页应用。在 MongoDb 的驱动方面，我选择了一个 ODM( Object Docunemt Mapper) ：<a href="http://mongoosejs.com/" target="_blank" rel="external">mongoose</a>。</p>
+<p><strong>注意</strong> 我是用 OSX 的，其他系统的操作可能会有些不同。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="MongoDB-安装"><a href="#MongoDB-安装" class="headerlink" title="MongoDB 安装"></a>MongoDB 安装</h3><p>在 osx 下，推荐用 homebrew 来安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install mongodb</div></pre></td></tr></table></figure>
+<p>如果 homebrew 安装失败的话，可以直接从官网下载对应的二进制文件。</p>
+<p>其他平台的安装可以看<a href="https://docs.mongodb.org/manual/installation/" target="_blank" rel="external">官方文档</a>。</p>
+<h3 id="mongoose-安装"><a href="#mongoose-安装" class="headerlink" title="mongoose 安装"></a>mongoose 安装</h3><p>mongoose 的安装也非常简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save mongoose</div></pre></td></tr></table></figure>
+<p>安装之前先确保你已经正确安装了 nodejs 。</p>
+<h2 id="启动数据库"><a href="#启动数据库" class="headerlink" title="启动数据库"></a>启动数据库</h2><h3 id="默认路径下启动"><a href="#默认路径下启动" class="headerlink" title="默认路径下启动"></a>默认路径下启动</h3><p>启动 MongoDB 最简单的方法就是在命令行输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongod</div></pre></td></tr></table></figure>
+<p>这时候，数据库就会在默认的路径 ‘data/db’ 下启动数据库。</p>
+<h3 id="特定路径下启动"><a href="#特定路径下启动" class="headerlink" title="特定路径下启动"></a>特定路径下启动</h3><p>如果你想在自己定义的项目目录下启动的话可以这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//假设你在当前目录下有一个叫做 &apos;test&apos; 的目录</div><div class="line"></div><div class="line">mongod --dbpath test</div></pre></td></tr></table></figure>
+<p>如果数据库正确启动了，test 目录里面就会多出一些文件。</p>
+<h3 id="特定端口启动"><a href="#特定端口启动" class="headerlink" title="特定端口启动"></a>特定端口启动</h3><p>MongoDB 默认是启动在 27017 端口，如果想用其他端口的话可以这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongod --port 8080</div></pre></td></tr></table></figure>
+<p>到这里，你的数据库应该就能成功启动了。如果不行，可能是因为授权的问题，可以参考官方文档，或者 Google 一下。</p>
+<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><p>在项目目录下新建一个文件 app.js :</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>);</div><div class="line"></div><div class="line">mongoose.connect(<span class="string">'mongodb://localhost:27017/db/test'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> db = mongoose.connection;</div><div class="line">db.on(<span class="string">'error'</span>, <span class="built_in">console</span>.error.bind(<span class="built_in">console</span>, <span class="string">'connection error:'</span>));</div><div class="line">db.once(<span class="string">'open'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'connect success'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>然后，在保持数据库启动的状态下，打开一个新的命令窗口，输入命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">node app.js</div></pre></td></tr></table></figure>
+<p>这个时候如果连接成功的话就会在命令窗口中显示 ‘connect success’ 这样的字样，表示数据库已经连接成功了。现在我们可以对数据进行 CRUD 操作了。这部分我们下次再讲。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在做一个课程设计，想做一个单页应用。但我是学前端的，后端知识比较缺乏，所以有点苦恼后端要怎么实现。正好前阵子看到了一本书，《单页 web 应用 javascript 从前端到后端》(写得挺详细的一本书，推荐一下)，受到了启发，于是决定用 nodejs 做后端。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="mongoose, MongoDB" scheme="http://yoursite.com/tags/mongoose-MongoDB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>osx下显示隐藏文件</title>
+    <link href="http://yoursite.com/2015/12/31/osx%E4%B8%8B%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/2015/12/31/osx下显示隐藏文件/</id>
+    <published>2015-12-31T03:23:50.000Z</published>
+    <updated>2016-10-27T11:19:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>前段时间入手了 MacBook ，虽然游戏性能真的不怎么样，但是用来工作，写代码什么的体验确实很棒，毕竟定位不同嘛。后来发现一个问题，就是要在 osx 中显示隐藏文件，并不能像 windows 一样方便。于是上网收集了一下。</p>
+<a id="more"></a>
+<ol>
+<li><p>使用终端<br>在终端输入以下命令：<br><code>defaults write com.apple.finder AppleShowAllFiles -bool YES</code><br>然后确定。要重启 Finder 才能生效。继续输入一下命令：<br><code>killall Finder</code><br>点击确定。现在再打开 Finder ，就能看到隐藏文件了。<br>如果要恢复隐藏的话，在终端输入以下命令：<br><code>defaults write com.apple.finder AppleShowAllFiles -bool NO</code>。<br>然后同样是重启 Finder ，就能恢复了。</p>
+</li>
+<li><p>在 Finder 的服务中添加一个选项<br>在应用程序中找到 Automator ，打开之后，点击服务。在左侧的资源库中找到<code>Run Shell Script</code>（中文系统是：运行 shell 脚本），把它拖到右侧工作区中，将以下代码粘贴到输入框中：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">STATUS=`defaults read com.apple.finder AppleShowAllFiles` </div><div class="line">if [ $STATUS == YES ]; </div><div class="line">then </div><div class="line">defaults write com.apple.finder AppleShowAllFiles NO </div><div class="line">else </div><div class="line">defaults write com.apple.finder AppleShowAllFiles YES </div><div class="line">fi </div><div class="line">killall Finder</div></pre></td></tr></table></figure>
+<p> 最后在上边的 Service receives 的下拉菜单中选择 ‘no input’ ，然后将工作流程保存为 ‘Toggle Hidden Files’ 。 现在打开 Finder 的服务菜单，就会看到 ‘Toggle Hidden Files’ 这一个选项了。</p>
+<p> <img src="/images/hiddenFiles01.png" alt="hiddenFiles01"></p>
+</li>
+<li><p>在右键菜单中添加一下选项</p>
+<p> 上一个方法是在 Finder 的服务菜单中添加选项，这个方法是在文件夹的右键菜单的服务菜单里面添加一下选项。<br> 前部分跟上一个方法一样，但这次我们在 Service receives 中选择 ‘文件或文件夹’，并在右边选中 Finder 。现在，就可以在 Finder 的右键菜单的服务中找到 ‘Toggle Hidden Files’ 了。 </p>
+<p> <img src="/images/hiddenFiles02.png" alt="hiddenFiles02"></p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前段时间入手了 MacBook ，虽然游戏性能真的不怎么样，但是用来工作，写代码什么的体验确实很棒，毕竟定位不同嘛。后来发现一个问题，就是要在 osx 中显示隐藏文件，并不能像 windows 一样方便。于是上网收集了一下。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="osx技巧" scheme="http://yoursite.com/tags/osx%E6%8A%80%E5%B7%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redux 初探</title>
+    <link href="http://yoursite.com/2015/12/31/redux/"/>
+    <id>http://yoursite.com/2015/12/31/redux/</id>
+    <published>2015-12-31T02:13:02.000Z</published>
+    <updated>2016-10-27T11:19:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近发现了一个东西叫做 redux ，感觉很厉害的样子，于是就抽时间学习了一下。</p>
+<a id="more"></a>
+<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><ul>
+<li><p><a href="http://camsong.github.io/redux-in-chinese/index.html" target="_blank" rel="external">中文文档</a></p>
+</li>
+<li><p><a href="http://rackt.org/redux/index.html" target="_blank" rel="external">英文文档</a></p>
+<p>​</p>
+</li>
+</ul>
+<h2 id="Redux-的三个原则"><a href="#Redux-的三个原则" class="headerlink" title="Redux 的三个原则"></a>Redux 的三个原则</h2><h3 id="1-只有一个store"><a href="#1-只有一个store" class="headerlink" title="1. 只有一个store"></a>1. 只有一个store</h3><p>​    在 redux 中，你只有一个 store ，这个 store 中有一棵 object tree ，它维护着整个引用的 state 。这样就保证了数据的单一来源。在 flux 中，由于你可以有多个 store ，导致你有时候分不清你的 state 是在哪里发生变化的，这样就导致了一些莫名其妙的 bug ，特别是对于初学者来说。</p>
+<h3 id="2-state-是只读的"><a href="#2-state-是只读的" class="headerlink" title="2. state 是只读的"></a>2. state 是只读的</h3><p>​    在你的应用中，你只能通过 action 来改变 state 。无论是视图还是网络请求，都不能直接改变 state ，只能通过 dispatch 一个 action 来表达想要改变 state 的意图。其实这也是保证了单一的数据源。</p>
+<h3 id="3-使用纯函数来修改数据"><a href="#3-使用纯函数来修改数据" class="headerlink" title="3. 使用纯函数来修改数据"></a>3. 使用纯函数来修改数据</h3><p>​    在 redux 中，我们通过 reducer 来接受 action 和旧的 state ，然后返回新的 state ，从而改变整个应用的 state tree。reducer 只是一些纯函数（不产生副作用，不发出网络请求）。你可以有多个 reducer ，并按照需要把 reducers 写在不同的文件中，最后通过 redux 的一个函数 combineReducers 把他们合并在一起。</p>
+<h2 id="一个非常简单的例子"><a href="#一个非常简单的例子" class="headerlink" title="一个非常简单的例子"></a>一个非常简单的例子</h2><p>​    我们来做一个非常简单的例子，有一个按钮，点击一下分成一个随机数，并显示在屏幕上。真的非常简单！但是为了学习 redux 我还是稍微做的复杂了一点。</p>
+<p>首先安装一下 redux ，由于我们是和 react 一起用，所以还有装一个 react 绑定库。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save redux react-redux</div></pre></td></tr></table></figure>
+<p>然后添加一个 action：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//actions.js</span></div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">const</span> CHANGE = <span class="string">'change'</span>;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/*  </span></div><div class="line"> 这里我们返回了一个事件(action)，每次我们想要改变 state tree </div><div class="line"> 的时候就调用这个函数。在这里，我们只返回一个 action ，不做其他</div><div class="line"> 的事情，不产生任何的副作用。这样的函数我们叫做 action creater</div><div class="line">*/</div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">newRandom</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> &#123;</div><div class="line">		<span class="attr">type</span>: CHANGE</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接着我们有一个 reducer：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//reduder.js</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; CHANGE &#125; <span class="keyword">from</span> <span class="string">'../actions/actions'</span></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> reducer 从 store 中接收两个参数：state 和 action ，你也可以为 state 加上默认值。</div><div class="line"> 根据 aciton.type 来改变应用的 state tree (返回新的 state)。</div><div class="line"> 建议默认返回原来的 state ，避免出现问题。</div><div class="line">*/</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">reducer</span>(<span class="params">state = <span class="string">'hello'</span>, action</span>)</span>&#123;</div><div class="line">	<span class="keyword">switch</span> (action.type) &#123;</div><div class="line">		<span class="keyword">case</span> CHANGE:</div><div class="line">			<span class="keyword">return</span> &#123;</div><div class="line">				<span class="attr">text</span>: <span class="built_in">Math</span>.random()</div><div class="line">			&#125;;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">default</span>:</div><div class="line">			<span class="keyword">return</span> state;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来是我们的顶层组件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// app.js</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123; newRandom &#125; <span class="keyword">from</span> <span class="string">'./actions/actions'</span>;</div><div class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</div><div class="line"><span class="keyword">import</span> &#123; bindActionCreators &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> App = React.createClass(&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">const</span> &#123; dispatch &#125; = <span class="keyword">this</span>.props;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;h1&gt;&#123;this.props.text&#125;&lt;/h1&gt;</div><div class="line">                &lt;button onClick=&#123;()=&gt;dispatch(newRandom())&#125;&gt;click me!&lt;/button&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> 这个函数能接收到应用的 state tree ，并且返回我们需要的数据，也就是 props</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mapStateToProps</span>(<span class="params">state</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">text</span>: state.text</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//使用 connect 函数之后，App 组件就会被注入全局的 state 和一个 dispatch 函数</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps)(App)</div></pre></td></tr></table></figure>
+<p>最后是我们的 index 文件：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// index.js</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</div><div class="line"><span class="keyword">import</span> reducer <span class="keyword">from</span> <span class="string">'./reducers/reducer'</span>;</div><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./app'</span>;</div><div class="line"></div><div class="line"><span class="comment">//实例化一个 store </span></div><div class="line"><span class="keyword">let</span> store = createStore(reducer);</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> 用 Provider 把我们的顶级组件 App 包裹其中，并传入 store 实例，</div><div class="line"> 这样在 App 中我们就能访问到 store 了。</div><div class="line">*/</div><div class="line">ReactDOM.render(</div><div class="line">	&lt;Provider store=&#123;store&#125;&gt;</div><div class="line">		&lt;App /&gt;</div><div class="line">	&lt;/Provider&gt;,</div><div class="line">	<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>最后，用 webpack 之类的打包工具打包一下，并开启本地服务器，就能在浏览器中访问我们的应用了：</p>
+<p>  <img src="/images/redux01.png" alt="redux01"></p>
+<p>现在，每次点击按钮，都会产生一个随机数：</p>
+<p> <img src="/images/redux02.png" alt="redux02"></p>
+<p>great！我们已经用 react ＋ redux 做出了一个应用！现在来解释一下数据流。</p>
+<ol>
+<li><p>调用<code>store.dispatch(action)</code></p>
+<p>用 dispatch 函数来派发一个 action ，一个 action 就是一个简单的对象。一个 action 至少要有一个表示事件类型的属性，例如 <code>type</code> 。然后，你可以添加任何你需要的属性，就像这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123; </div><div class="line">  <span class="attr">type</span>: <span class="string">'click'</span>,</div><div class="line">  <span class="attr">name</span>: <span class="string">'banana'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>   你可以在任何你需要的地方调用 dispatch ，可以在一个 ajax 的回调函数中，或者一个 setInterval 中。</p>
+<ol>
+<li><p>store 调用 reducer </p>
+<p>还记得我们在实例化 store 的时候传进来了一个 reducer 了吗？我们的 store 会在这个时候调用这个 reducer ，同时传入两个参数：当前的 state tree 和 上一步的 action 。</p>
+<p><strong>强调一下</strong> ：我们的 reducer 只是一个纯函数，它只会计算新的 state 。同时它的行为是可以预测的：同样的输入，每次都会得到同样的输出。它不应该执行任何会有副作用的动作，例如调用API ，路由，网络请求等，这些行为都应该在 dispatch( action ) 之前执行。</p>
+</li>
+<li><p>root reducer 把多个 reducer 的返回值合并成一棵单一的 state tree</p>
+<p>也许你的应用中只有一个 reducer ，但当应用的规模变大的时候，就会需要多个 reducer 来处理不同的逻辑，这时候，你可以用 <code>combineReducers( )</code> 来把多个 <code>reducer</code> 合并成一个 <code>rootReducer</code> 。就像下面这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">todos</span>(<span class="params">state = [], action</span>) </span>&#123;</div><div class="line">   <span class="comment">// Somehow calculate it...</span></div><div class="line">   <span class="keyword">return</span> nextState</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">visibleTodoFilter</span>(<span class="params">state = <span class="string">'SHOW_ALL'</span>, action</span>) </span>&#123;</div><div class="line">   <span class="comment">// Somehow calculate it...</span></div><div class="line">   <span class="keyword">return</span> nextState</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="keyword">let</span> todoApp = combineReducers(&#123;</div><div class="line">   todos,</div><div class="line">   visibleTodoFilter</div><div class="line"> &#125;)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>   当你派发来一个事件的时候，<code>todoApp</code> 就会调用传进来的所有 <code>reducers</code> ，在这里就是 <code>todos()</code> 和 <code>visibleTodoFilter()</code> ，然后把各个 <code>reducer</code> 返回的新的 state 组合成 state tree 。</p>
+<ol>
+<li><p>store 把 root reducer 返回的整棵 state tree 保存起来</p>
+<p>来到这里，你的 app 中就有了一棵新的 state tree 了。这时候，所有用 <code>store.subscribe( listener )</code> 注册的 <code>listener</code> 函数都会被调用，在 <code>listener</code> 函数中，可以调用 <code>store.getState()</code> 来获取到当前的 state ，也就是最新的 state 了。最后，我们的 UI 就会更新，在 react 中，就相当于自动调用了 <code>component.setState()</code>。</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近发现了一个东西叫做 redux ，感觉很厉害的样子，于是就抽时间学习了一下。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="redux react" scheme="http://yoursite.com/tags/redux-react/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iScroll导致元素无法点击</title>
+    <link href="http://yoursite.com/2015/12/16/iScroll%E5%AF%BC%E8%87%B4%E5%85%83%E7%B4%A0%E6%97%A0%E6%B3%95%E7%82%B9%E5%87%BB/"/>
+    <id>http://yoursite.com/2015/12/16/iScroll导致元素无法点击/</id>
+    <published>2015-12-16T11:15:03.000Z</published>
+    <updated>2016-10-27T11:19:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近接手了一个游戏，在接入某一个渠道的时候，需要加一个分享的功能。</p>
+<p>这个需求很简单，一个<code>&lt;textarea&gt;</code>，一个确定按钮，一个取消按钮，加一点点逻辑，理论上就可以了。</p>
+<p>但是却遇到了一个问题：点击<code>&lt;textarea&gt;</code>的时候无法聚焦到它上面，就是说无法在<code>&lt;textarea&gt;</code>里面输入内容，百思不解。</p>
+<a id="more"></a>
+<p>于是Google了一下，在其他人的一些文章中发现了问题的所在。</p>
+<p>我的游戏中为了在移动端获得比较好的滚动体验，使用了一个工具：<a href="http://iscrolljs.com/" target="_blank" rel="external">iScroll</a>。这个工具为了要达到模拟滚动的最佳效果，默认禁用了所有元素（除了<code>&lt;a&gt;</code>）的默认事件，所以造成了<code>&lt;textarea&gt;</code>等的一些元素无法点击，也就无法聚焦。</p>
+<p>解决办法也有一些，有的是直接修改源码。但为了防止其他bug的出现，我选择了用js来对特定元素进行聚焦，代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">_getFocus()&#123;</div><div class="line">        <span class="built_in">document</span>.getElementsByClassName(<span class="string">'inputArea'</span>)[<span class="number">0</span>].focus();</div><div class="line">&#125;,</div><div class="line">render()&#123;</div><div class="line">    <span class="keyword">return</span> (</div><div class="line">        ...</div><div class="line">        &lt;textarea className=<span class="string">"inputArea"</span> ref=<span class="string">"share"</span> placeholder=&#123;<span class="keyword">this</span>.state.defaultMsg&#125; &gt;</div><div class="line">        ...</div><div class="line">    )</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里用了jsx的语法，但大意还是很清楚，就是点击了这个<code>&lt;textarea&gt;</code>的时候，就focus到这个元素上，很简单。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近接手了一个游戏，在接入某一个渠道的时候，需要加一个分享的功能。&lt;/p&gt;
+&lt;p&gt;这个需求很简单，一个&lt;code&gt;&amp;lt;textarea&amp;gt;&lt;/code&gt;，一个确定按钮，一个取消按钮，加一点点逻辑，理论上就可以了。&lt;/p&gt;
+&lt;p&gt;但是却遇到了一个问题：点击&lt;code&gt;&amp;lt;textarea&amp;gt;&lt;/code&gt;的时候无法聚焦到它上面，就是说无法在&lt;code&gt;&amp;lt;textarea&amp;gt;&lt;/code&gt;里面输入内容，百思不解。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>browser-sync + gulp + postcss配置文件</title>
+    <link href="http://yoursite.com/2015/10/24/%E7%94%A8browser-sync%E5%90%8C%E6%97%B6%E5%BC%80%E5%8F%91%E5%A4%9A%E4%B8%AA%E5%B0%BA%E5%AF%B8%E7%9A%84%E9%A1%B5%E9%9D%A2/"/>
+    <id>http://yoursite.com/2015/10/24/用browser-sync同时开发多个尺寸的页面/</id>
+    <published>2015-10-24T09:37:34.000Z</published>
+    <updated>2016-10-27T11:19:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近发现了一个工具<a href="http://www.browsersync.io/" target="_blank" rel="external">browser-sync</a>。使用这个工具可以同时在多个尺寸的浏览器中打开同一个页面，当在A浏览器中点击了一个按钮，在B浏览器中也会响应这个事件。另外，当你修改了本地的 HTML 文件或者 css 文件的时候，浏览器也会自动刷新网页，就像是liveEdit一样。非常cool的功能！<br>而且，它也可以结合<a href="http://gulpjs.com/" target="_blank" rel="external">gulp</a>或<a href="http://gruntjs.com/" target="_blank" rel="external">grunt</a>来使用，自动编译文件（例如.sacc）后实时显示效果。这样，你就可以同时打开几个浏览器窗口，分别显示不同的尺寸。</p>
+<a id="more"></a>
+<p>安装什么的就不啰嗦了，官网上有。使用也很简单，一行命令就可以了。</p>
+<p>如果用自动化工具（gulp/grunt）来运行 browser-sync 的话，可以同时结合其他gulp插件来使用。例如自动编译scss然后同步在浏览器中显示效果。</p>
+<p>由于最近在学习<a href="https://github.com/postcss/postcss" target="_blank" rel="external">postcss</a>，所以就想结合gulp、postcss、browser-sync来玩一下。以下是我的gulpfile：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"><span class="keyword">var</span> browserSync = <span class="built_in">require</span>(<span class="string">'browser-sync'</span>).create();</div><div class="line"><span class="keyword">var</span> postcss = <span class="built_in">require</span>(<span class="string">'gulp-postcss'</span>);</div><div class="line"><span class="keyword">var</span> autoprefixer = <span class="built_in">require</span>(<span class="string">'autoprefixer'</span>);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'browser-sync'</span>,[<span class="string">'css'</span>],<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	browserSync.init(&#123;</div><div class="line">		<span class="attr">proxy</span>: <span class="string">'localhost/postcss/index.html'</span>,</div><div class="line">		<span class="attr">files</span>: <span class="string">"build/css/base.css"</span></div><div class="line">	&#125;);</div><div class="line"></div><div class="line">	gulp.watch(<span class="string">'src/css/base.css'</span>,[<span class="string">'css'</span>]);</div><div class="line">&#125;);</div><div class="line"></div><div class="line">gulp.task(<span class="string">'css'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">return</span> gulp.src(<span class="string">'./src/css/*.css'</span>)</div><div class="line">		.pipe(</div><div class="line">			postcss([</div><div class="line">				<span class="built_in">require</span>(<span class="string">'precss'</span>)(&#123;&#125;)</div><div class="line">			])</div><div class="line">		)</div><div class="line">		.pipe(gulp.dest(<span class="string">'./build/css'</span>));</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>修改了对应的css文件之后就会自动用postcss来处理，然后显示在浏览器中。现在这里mark一下，已备不时之需。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近发现了一个工具&lt;a href=&quot;http://www.browsersync.io/&quot;&gt;browser-sync&lt;/a&gt;。使用这个工具可以同时在多个尺寸的浏览器中打开同一个页面，当在A浏览器中点击了一个按钮，在B浏览器中也会响应这个事件。另外，当你修改了本地的 HTML 文件或者 css 文件的时候，浏览器也会自动刷新网页，就像是liveEdit一样。非常cool的功能！&lt;br&gt;而且，它也可以结合&lt;a href=&quot;http://gulpjs.com/&quot;&gt;gulp&lt;/a&gt;或&lt;a href=&quot;http://gruntjs.com/&quot;&gt;grunt&lt;/a&gt;来使用，自动编译文件（例如.sacc）后实时显示效果。这样，你就可以同时打开几个浏览器窗口，分别显示不同的尺寸。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="前端工具" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>javascript闭包工作原理</title>
+    <link href="http://yoursite.com/2015/10/12/javascript%E9%97%AD%E5%8C%85%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"/>
+    <id>http://yoursite.com/2015/10/12/javascript闭包工作原理/</id>
+    <published>2015-10-12T12:18:55.000Z</published>
+    <updated>2016-10-27T11:19:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>闭包是JavaScript的一个重要内容，但我以前一直没搞清楚它的工作原理，直到看到了<a href="http://blog.leapoahead.com/2015/09/15/js-closure/" target="_blank" rel="external">一篇文章</a>。</p>
+<p>下面就简单的概括一下。</p>
+<a id="more"></a>
+<h2 id="作用域链（scope-chain）"><a href="#作用域链（scope-chain）" class="headerlink" title="作用域链（scope chain）"></a>作用域链（scope chain）</h2><p>在JavaScript中，每一个function都有一个对应的<em>作用域对象</em>，用来保存function中的局部变量以及参数。你可以把这个<em>作用域对象</em>想象成一个普通的JavaScript对象，但你不能直接获取这个对象，你只能修改它的属性（也就是修改局部变量）。当你在函数外部定义变量时，这些变量就会添加到全局对象中，这些变量就是我们平常说的全局变量。显然，全局变量的作用域就是全局对象。</p>
+<p>当在function中嵌套另一个function的时候，就会出现<em>父级作用域</em>。把所有的作用域对象像链条一样一个一个的链接起来就形成了一个<em>作用域链</em>。作用域的顶部是一个全局对象。当JavaScript中的function需要查找（或者叫做变量解析）某一个变量x的时候，它首先会在当前函数的<em>作用域对象</em>里面查找，如果没有找到，就会在它的父级作用域对象中一级一级的往上查找。如果到最后还是没有找到，就会抛出一个错误：<code>ReferenceError</code>。</p>
+<p>在这里可以引出一个关于JavaScript性能优化的小tips：当你需要在一个函数中多次的引用一个外部变量时，可以先把它保存在一个局部变量中，再对这个局部变量进行操作。这样就可以省去在父级作用域中多次查找变量的时间。</p>
+<h2 id="对作用域的引用"><a href="#对作用域的引用" class="headerlink" title="对作用域的引用"></a>对作用域的引用</h2><p>有一下一段代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="number">1</span>;</div><div class="line"><span class="keyword">var</span> myfunc = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> bar = <span class="number">2</span>;</div><div class="line">    <span class="keyword">var</span> innerfunc()&#123;</div><div class="line">        <span class="built_in">console</span>.log(foo);</div><div class="line">    &#125;</div><div class="line">    innerfunc();</div><div class="line">&#125;</div><div class="line">myfunc();</div></pre></td></tr></table></figure></p>
+<p>当函数被定义时，这个函数的标识符就会被添加到当前作用域中（在上面的代码中就是全局作用域），标识符所引用的是一个函数对象，这个函数对象包含了函数的源代码和一些内部属性，其中一个我们关心的就是[[scope]]。[[scope]]所引用的是这个函数在定义时所能直接访问的作用域（这里是全局作用域）。如果函数是嵌套在另外一个函数中，那么它的[[scope]]就是指向外层函数的作用域。这一点对于理解闭包<strong>很重要！</strong></p>
+<p>我们知道，在<code>myfunc</code>被调用的时候会创建一个新的作用域，用来保存局部变量和参数，这个作用域的父级作用域就是定义<code>myfunc</code>时所处的作用域，也就是 myfunc 的[[scope]]所指向的作用域。</p>
+<p>调用<code>myfunc</code>时,会在内部调用<code>innerfunc</code>，这时JavaScript需要在<code>innerfunc</code>的作用域中查找<code>foo</code>,没找到，于是在<code>innerfunc</code>的[[scope]]所指向的作用域（也就是<code>myfunc</code>的作用域）中查找，还是没找到，继续在<code>myfunc</code>的[[scope]]所指向的作用域（全局作用域）中查找，找到了<code>foo = 1</code>，查找结束。</p>
+<p>当函数执行完并返回的时候，再也没有一个对象会引用它的作用域，这个作用域就可以被垃圾回收器回收，因此也就不能继续访问函数内部的变量了。上面的代码中，当<code>myfunc</code>执行完毕并返回后，就不能再访问它内部的<code>bar</code>了。</p>
+<h2 id="返回引用"><a href="#返回引用" class="headerlink" title="返回引用"></a>返回引用</h2><p>上面讨论到了，在函数调用结束并返回之后，由于它的作用域会被回收而不能继续访问它的局部变量。假设我们把函数作用域的引用返回，并保存在一个外部的变量里，是不是就意味着可以继续访问函数的局部变量呢？答案是肯定的，这也就是我们平常说的闭包所做的事情了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> counter = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line">    <span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        a++;</div><div class="line">        <span class="built_in">console</span>.log(a);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> add;</div><div class="line">&#125; </div><div class="line"><span class="keyword">var</span> myCounter = counter();</div><div class="line">myCounter()     <span class="comment">//2</span></div><div class="line">myCounter()     <span class="comment">//3</span></div><div class="line">myCounter()     <span class="comment">//4</span></div></pre></td></tr></table></figure>
+<p>上面是一个简单的闭包。调用<code>counter</code>的时候<code>counter</code>函数返回了一个<code>add</code>函数并赋值给<code>myCounter</code>，使得<code>myCounter</code>指向了<code>add</code>。同时，由于<code>add</code>的[[scope]]保存了对<code>counter</code>作用域的引用，所以即使在counter调用结束了，<code>myCounter</code>依然可以访问到<code>counter</code>中的变量<code>a</code>。</p>
+<p>需要注意的是作用域链是不会被复制的，每次函数调用只会往作用域链下面新增一个作用域对象。</p>
+<p>有一个经典的闭包例子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [];</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</div><div class="line">	arr[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> i&#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当依次调用<code>arr[0](),arr[1](),arr[2]()</code>的时候会得到什么结果呢？</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>闭包是什么？<br>闭包是一个对象，它包含了对函数对象的引用以及对作用域对象的引用，所以可以通过闭包在函数外部访问到函数内部的局部变量。实际上，JavaScript所有的对象都是闭包。</p>
+<p>闭包什么时候被创建和销毁？<br>由于所有JavaScript对象都是闭包，所以在定义一个函数的时候就创建了一个闭包；而当这个闭包没有被任何对象引用的时候它就会被销毁。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;闭包是JavaScript的一个重要内容，但我以前一直没搞清楚它的工作原理，直到看到了&lt;a href=&quot;http://blog.leapoahead.com/2015/09/15/js-closure/&quot;&gt;一篇文章&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;下面就简单的概括一下。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用prefetch来提升性能</title>
+    <link href="http://yoursite.com/2015/09/16/prefetch/"/>
+    <id>http://yoursite.com/2015/09/16/prefetch/</id>
+    <published>2015-09-16T09:54:41.000Z</published>
+    <updated>2016-10-27T11:19:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在<a href="https://css-tricks.com/" target="_blank" rel="external">css-tricks</a>看到了一篇关于前端性能优化的文章<a href="https://css-tricks.com/prefetching-preloading-prebrowsing/" target="_blank" rel="external">《Prefetching, preloading, prebrowsing》</a>，于是尝试翻译一下。（第一次翻译，如有错漏，请多多指教）</p>
+<a id="more"></a>
+<p>当我们谈论到前端性能的时候我们会想到这样的一些东西：级联、最小化、缓存、或者压缩服务器上的资源，这样页面就可以加载得更快而且用户也可以尽快的完成他们的目的。</p>
+<p>资源预抓取（prefetching）是另一个提升性能的技术。我们可以用这个技术来告诉浏览器，用户将来可能会需要哪些资源。（在用户还没用到这些资源之前）。</p>
+<p><em>Patrick Hamann</em> :</p>
+<blockquote>
+<p>预抓取是一种用来提示浏览器哪些资源在将来一定会或者可能会用到的方法，有些提示应用在当前的页面，其他的用在将来可能打开的页面。</p>
+<p>作为开发者，我们比浏览器更加清楚我们的应用。我们可以利用这些信息来告诉浏览器那些核心的资源。</p>
+</blockquote>
+<p>这种在用户需要之前就猜测用户需要什么的实践已经被叫做‘预浏览（prebrowsing）’，但这并不是单一的一种技术，它分成了很多不同的技术：DNS预抓取，子资源，标准的预抓取，预连接，和预渲染。</p>
+<h2 id="DNS预抓取"><a href="#DNS预抓取" class="headerlink" title="DNS预抓取"></a>DNS预抓取</h2><p>这个方法会通知客户端有一些来自特定URL的资源我们在以后会用到，这样浏览器就能尽快解析这个DNS。假设我们需要一个来自<code>example.com</code>这个URL的资源，例如一张图片或者一段音频。这文档的<code>&lt;head&gt;</code>里面我们这样写：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"dns-prefetch"</span> <span class="attr">href</span>=<span class="string">"//example.com"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>这样，当我们需要从这个URL请求一个文件的时候就不用再等待DNS查找。当我们需要用到第三方库的代码或者来自网络中的其他资源。</p>
+<p>在<em>Harry Roberts</em>的‘史诗级’的关于<a href="http://csswizardry.com/2013/01/front-end-performance-for-web-designers-and-front-end-developers/#section:dns-prefetching" target="_blank" rel="external">前端性能优化的文章</a>中，他建议用这个技术：</p>
+<blockquote>
+<p>这行简单的代码会告诉那些支持它的浏览器在真正需要之前就开始预抓取这个域名的DNS。这就意味着‘DNS查询’的这个过程在浏览器遇到真正需要请求这个组件的<code>&lt;script&gt;</code>元素的时候就已经在进行。这就给了浏览器一个小小的提前。</p>
+</blockquote>
+<p>这看上去可能会是一个微乎其微的不怎么重要的性能优化，但其实并不是那么一回事——Chrome浏览器一直都在做类似的事情。当你在地址栏输入域名的一部分的时候，它（Chrome）就会自动的与解析对应的DNS（有的时候甚至会提前渲染页面），这就会在每次请求的时候减少那关键的几毫秒。</p>
+<h2 id="预连接"><a href="#预连接" class="headerlink" title="预连接"></a>预连接</h2><p>跟DNS预抓取很相似，预连接也会解析DNS，但它也会同时执行TCP握手和可选的TLS协商。它可以这样用：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"preconnect"</span> <span class="attr">href</span>=<span class="string">"http://css-tricks.com"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>想要更多的信息的话，<em>Ilya Grigorik</em>写了一篇关于这个方便的资源提示的<a href="https://www.igvita.com/2015/08/17/eliminating-roundtrips-with-preconnect/" target="_blank" rel="external">文章</a>：</p>
+<blockquote>
+<p>现代浏览器会尽它们最大的能力在网站发起真正的请求之前就去预测这个网站将会需要哪些连接。通过提前开始“预连接”，浏览器可以提前建立sockets并且消除DNS，TCP和TLS等在实际请求过程中的艰难道路上昂贵的往返时间。也就是说，就算浏览器很聪明，它们也不能可靠的预测每一个网站的所有预连接目标。</p>
+<p>但值得高兴的是我们可以帮助浏览器。通过在<em>Firefox 39</em>和<em>Chrome 46</em>中引入的新的预连接提示，我们可以在真正的请求开始之前就告诉浏览器我们需要哪些sockets。</p>
+</blockquote>
+<h2 id="预抓取"><a href="#预抓取" class="headerlink" title="预抓取"></a>预抓取</h2><p>如果我们确定一个特定的资源在将来会被用到，我们就可以叫浏览器去请求这个资源并把它存储在缓存中以便之后的引用。例如一张图片或者一段脚本，或者其他任何可以被浏览器缓存的东西：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"prefetch"</span> <span class="attr">href</span>=<span class="string">"image.png"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>与DNS预抓取不同，我们真的是在请求并下载这个资源，并且把它存储在缓存中。但是这要依赖很多的条件，因为预抓取可以被浏览器忽略。例如，在一个网速慢的环境中，客户端可能会放弃请求一个很大的字体文件。FireFox只会在“浏览器空闲”的时候预抓取资源。</p>
+<p>就像<em>Bram Stein</em>在他的<a href="http://www.bramstein.com/writing/preload-hints-for-web-fonts.html" target="_blank" rel="external">文章</a>中对这个问题的解析一样，对于webfonts，预抓取会有巨大的性能提升。在目前，字体文件必须要等到DOM和CSSOM被构造之后才开始下载。但如果我们预抓取这些文件，就可以轻松地解决这个瓶颈。</p>
+<blockquote>
+<p><strong>注意</strong> 虽然以前测试资源的预抓取有点困难，但是Chrome和Firefox现在可以在网络面板中显示预抓取的资源。同时应当记得对于资源预抓取是没有同源限制的。</p>
+</blockquote>
+<h2 id="子资源"><a href="#子资源" class="headerlink" title="子资源"></a>子资源</h2><p>这是另一个预抓取技术，它可以用来标识那些具有优先级并且在预抓取文件之前就应该被请求。例如，在Chrome和Opera中我们在文档的<code>head</code>标签里加入以下代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"subresource"</span> <span class="attr">href</span>=<span class="string">"styles.css"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>根据<a href="https://www.chromium.org/spdy/link-headers-and-server-hint/link-rel-subresource" target="_blank" rel="external">Chromium文档</a>，它的工作原理是这样的：</p>
+<blockquote>
+<p><code>LINK rel=subresource</code>提供了一个与<code>LINK rel=prefetch</code>具有不同语意的链接关系类型。<code>LINK rel=prefetch</code>为在随后的页面中用到的资源提供一个低优先级的下载，但<code>LINK rel=subresource</code>使得资源能在当前页面中提前下载。</p>
+</blockquote>
+<p>所以，如果某个资源是要在当前前面中使用，或者需求比较急迫，那么最好是用<code>subresource</code>，否则就用<code>prefetch</code>。</p>
+<h2 id="页面预渲染"><a href="#页面预渲染" class="headerlink" title="页面预渲染"></a>页面预渲染</h2><p>这是一个核弹般的选择，因为<code>prerender</code>给予我们一种可以先发制人地下载一个特定文档的所有资源，就像这样：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"prerender"</span> <span class="attr">href</span>=<span class="string">"http://css-tricks.com"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><em>Steve Souders</em>写了一篇关于这个技术的<a href="http://www.stevesouders.com/blog/2013/11/07/prebrowsing/" target="_blank" rel="external">解析</a>：</p>
+<blockquote>
+<p>这就像在一个隐藏的tab中打开这个URL，所有的资源都会被下载，DOM会被创建，页面会被展示，CSS会被应用，JavaScript会被执行，等等。如果用户导航到了这个特定的<code>href</code>，这个隐藏的页面就会被换进视口中，看起来就像是在瞬间加载一样。谷歌搜索拥有这个特性已经很多年了，并且把它叫做“瞬时页面”。微软最近也宣布他们打算在IE11平台上的Bing同样的使用预渲染。</p>
+</blockquote>
+<p>但是小心！你应该要确定用户有可能会点击这个链接，否则浏览器就会不需要任何理由地下载所有用来渲染这个页面的资源。</p>
+<p><em>Steve Souders</em>继续说道：</p>
+<blockquote>
+<p>与任何预想性的工作一样，这个预测有一定的风险会出错。如果这个预测工作是昂贵的（例如：从其他进程偷取CPU，耗电，或者浪费带宽）那么就要慎重考虑。预测用户下一步会去哪一个页面会看起来比较困难，但一些比较高几率的情况还是存在的：</p>
+<ul>
+<li>如果用户已经用一个明显的结果进行了搜索，这个搜索页面就很有可能在下一步被加载；</li>
+<li>如果用户导航到了一个登陆页面，那么登陆后的页面就有可能跟着被加载；</li>
+<li>如果用户正在阅读一篇多页的文章或者一些分页的结果，当前页面的下一个页面就很有可能在下一步被加载。</li>
+</ul>
+</blockquote>
+<p> 最后，<a href="http://www.w3.org/TR/page-visibility/" target="_blank" rel="external">页面可见性API</a>可以被用来防止脚本在被渲染到用户页面之前就被触发。</p>
+<p> 现在，先撇开规范和这些设计上的考虑，我们来谈一些对未来有意义的事情。</p>
+<h2 id="未来的选择：预加载"><a href="#未来的选择：预加载" class="headerlink" title="未来的选择：预加载"></a>未来的选择：预加载</h2><p> 一篇叫做<a href="https://w3c.github.io/preload/" target="_blank" rel="external">预加载</a>的文档建议有时候最好总把所有的资源都下载，不管浏览器是否认为这是一个好主意。与可以被忽略的资源预抓取不同，资源的预加载必须被浏览器请求。</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"preload"</span> <span class="attr">href</span>=<span class="string">"image.png"</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>所以，即使预加载在当前还没有被任何浏览器支持，但它背后的想法是还是很有意义的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>预测我们的用户下一步要做什么是很困难的，并且需要很多的计划和测试。但对性能的追求是绝对值得的。如果我们愿意去尝试这些预抓取技术，那么我们肯定可以明显的提升用户体验。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在&lt;a href=&quot;https://css-tricks.com/&quot;&gt;css-tricks&lt;/a&gt;看到了一篇关于前端性能优化的文章&lt;a href=&quot;https://css-tricks.com/prefetching-preloading-prebrowsing/&quot;&gt;《Prefetching, preloading, prebrowsing》&lt;/a&gt;，于是尝试翻译一下。（第一次翻译，如有错漏，请多多指教）&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="文章翻译" scheme="http://yoursite.com/tags/%E6%96%87%E7%AB%A0%E7%BF%BB%E8%AF%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>页面拥有ID的元素会创建全局变量</title>
+    <link href="http://yoursite.com/2015/09/14/%E9%A1%B5%E9%9D%A2%E6%8B%A5%E6%9C%89ID%E7%9A%84%E5%85%83%E7%B4%A0%E4%BC%9A%E5%88%9B%E5%BB%BA%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F/"/>
+    <id>http://yoursite.com/2015/09/14/页面拥有ID的元素会创建全局变量/</id>
+    <published>2015-09-14T13:16:40.000Z</published>
+    <updated>2016-10-27T11:19:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>前段时间在网上看到一篇文章介绍了一些前端冷知识<a href="http://web.jobbole.com/83473/" target="_blank" rel="external">文章在此</a>，其中里面有说到了一点：页面拥有ID的元素会创建全局变量。<a id="more"></a>例如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'hello'</span>&gt;</span>i'm a div<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>然后我在控制台中输入id：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hello</div></pre></td></tr></table></figure></p>
+<p>得到如下结果：<br><img src="/images/id1.png" alt=""></p>
+<h3 id="扩展1"><a href="#扩展1" class="headerlink" title="扩展1"></a>扩展1</h3><p>假设页面中有两个或者多个元素，它们拥有相同的id（实际上是不允许的），那结果会是怎样？<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"hello"</span>&gt;</span>i'm a div<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"hello"</span>&gt;</span>i'm div number2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"hello"</span>&gt;</span>i'm div number3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"hello"</span>&gt;</span>i'm div number4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"hello"</span>&gt;</span>i'm div number5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>在控制台输入id<code>hello</code>之后：<br><img src="/images/id2.png" alt=""></p>
+<p>也就是说，所有拥有相同id的元素都会被选中，并且存在一个数组里面。情况有点像用<code>document.getElementsByClassName()</code>。同时要注意到如果用<code>document.getElementById()</code>只会获取到第一个匹配的元素，也就是<code>&lt;div id=&quot;hello&quot;&gt;i&#39;m a div&lt;/div&gt;</code>。</p>
+<h3 id="扩展2"><a href="#扩展2" class="headerlink" title="扩展2"></a>扩展2</h3><p>如果在其中一个<code>div</code>里面再嵌套一个id为<code>hello</code>的元素，情况会是如何呢？<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"hello"</span>&gt;</span>i'm a div<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"hello"</span>&gt;</span>i'm div number2</div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"hello"</span>&gt;</span>i'm a child<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>输出结果：<br><img src="/images/id3.png" alt=""></p>
+<p>可以看到数组中有三个元素，也就是说页面中拥有相同id的元素有多少个，数组中就有多少个元素，即使某些元素之间存在嵌套关系。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前段时间在网上看到一篇文章介绍了一些前端冷知识&lt;a href=&quot;http://web.jobbole.com/83473/&quot;&gt;文章在此&lt;/a&gt;，其中里面有说到了一点：页面拥有ID的元素会创建全局变量。
+    
+    </summary>
+    
+    
+      <category term="前端杂谈" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS3动画生成插件</title>
+    <link href="http://yoursite.com/2015/04/11/css%E5%8A%A8%E7%94%BB%E7%94%9F%E6%88%90%E6%8F%92%E4%BB%B6/"/>
+    <id>http://yoursite.com/2015/04/11/css动画生成插件/</id>
+    <published>2015-04-11T12:00:37.000Z</published>
+    <updated>2016-10-27T11:19:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近发现了一个可以生成CSS3动画的插件，感觉挺方便的，在这里推荐一下<a href="http://melonh.com/animationGenerator/" target="_blank" rel="external">Animation Generator</a></p>
+<a id="more"></a>
+<p>这个工具使得开发者可以可视化地配置CSS3支持的动画效果。由于它集成在Chrome的开发者工具中，所以配置完以后可以马上显示效果。然后可以直接把textarea中的代码复制到自己的项目中。最方便的是这些生成的代码中已经包含了浏览器前缀。</p>
+<p>这里是界面<br><img src="/images/animationGenerator.png" alt=""></p>
+<p>具体的使用方法可以到官网上查看<a href="http://melonh.com/animationGenerator/" target="_blank" rel="external">Animation Generator</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近发现了一个可以生成CSS3动画的插件，感觉挺方便的，在这里推荐一下&lt;a href=&quot;http://melonh.com/animationGenerator/&quot;&gt;Animation Generator&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>获取滚动条高度</title>
+    <link href="http://yoursite.com/2015/03/31/%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E6%BB%9A%E5%8A%A8%E6%9D%A1%E7%9A%84%E9%AB%98%E5%BA%A6/"/>
+    <id>http://yoursite.com/2015/03/31/如何判断滚动条的高度/</id>
+    <published>2015-03-31T03:51:02.000Z</published>
+    <updated>2017-02-26T02:21:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在开发过程中有时候我们需要判断滚动条的位置，来执行某些行为。一个典型的例子：制作‘返回顶部’的控件时，我们想控制这个控件在页面向下滚动一定高度的时候才显示，当页面的顶部出现时这个控件隐藏。下面介绍在不同浏览器中获取滚动条高度的方法。<br><a id="more"></a></p>
+<ul>
+<li><p>在所有现代浏览器中（除了IE8及更早版本），都支持<code>Window</code>对象的<code>pageYOffset</code>和<code>pageXOffset</code>属性。<br><code>pageYOffset</code>用来获取垂直方向上文档滚动的高度。<br><code>pageXOffset</code>获取水平方法都得滚动距离。</p>
+</li>
+<li><p>在IE全系列中都支持<code>scrollTop</code>和<code>scrollLeft</code>属性。但他们不属于<code>Window</code>对象。这里分两种情况：</p>
+<ol>
+<li>正常情况下，通过查询文档的根节点<code>document.documentElement</code>来获取这些属性。（在chrome中这种方法始终返回 0）</li>
+<li>怪异模式下，通过body元素查询<code>document.body.scrollTop</code>。（chrome用这种方法竟然能正常工作）</li>
+</ol>
+</li>
+</ul>
+<p>于是我们可以用以下的代码来实现‘返回顶部’控件的显示和隐藏：</p>
+<pre><code>window.onscroll = function(){
+    var w = window,
+        d = document,
+        scroll = w.pageYOffset || d.documentElement.scrollTop ||d.body.scrollTop;
+    if(scroll&gt;200){
+        //显示控件
+    }else{
+        //隐藏控件
+    }
+}
+</code></pre><p><a href="#header">返回顶部</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在开发过程中有时候我们需要判断滚动条的位置，来执行某些行为。一个典型的例子：制作‘返回顶部’的控件时，我们想控制这个控件在页面向下滚动一定高度的时候才显示，当页面的顶部出现时这个控件隐藏。下面介绍在不同浏览器中获取滚动条高度的方法。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="获取滚动条高度" scheme="http://yoursite.com/tags/%E8%8E%B7%E5%8F%96%E6%BB%9A%E5%8A%A8%E6%9D%A1%E9%AB%98%E5%BA%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>获取图片尺寸</title>
+    <link href="http://yoursite.com/2015/03/30/picture-size/"/>
+    <id>http://yoursite.com/2015/03/30/picture-size/</id>
+    <published>2015-03-30T03:51:02.000Z</published>
+    <updated>2016-10-27T11:19:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在一次笔试中遇到了一道题目，其中要求在未显式设置图片大小的情况下获取图片的大小，这里收集了几种方法。</p>
+<a id="more"></a>
+<ol>
+<li><p>##通过读取图片的头文件信息</p>
+<pre><code>var img = document.getElementById( &apos;imag&apos; );
+var imgheader = new Image();//关键
+imgheader.src = img.src;
+console.log( imgheader.width,imgheader.height );
+</code></pre></li>
+<li><p>##getBoundingClientRect()方法</p>
+<p> 调用元素的<code>getBoundingClientRect()</code>方法会返回一个对象，这个对象的属性包括<code>top,bottom,left,right</code>。其中，<code>top,left</code>分别表示元素的左上角的X和Y坐标，而<code>bottom,right</code>分别代表元素右下角的X和Y坐标。</p>
+<p> 在非IE浏览器中这个对象还会有两个属性：<code>width,height</code>，分别代表当前元素的宽度和高度。但IE不支持这两个属性。要在IE中获取元素的宽度和高度可以用一下方法：</p>
+<pre><code>w = obj.right - obj.left;
+h = obj.bottom - obj.top;
+</code></pre></li>
+</ol>
+<p><a href="#header">返回顶部</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在一次笔试中遇到了一道题目，其中要求在未显式设置图片大小的情况下获取图片的大小，这里收集了几种方法。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="获取图片尺寸" scheme="http://yoursite.com/tags/%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87%E5%B0%BA%E5%AF%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>innerHTML, outerHTML, innerText, outerText之间的区别</title>
+    <link href="http://yoursite.com/2015/03/24/innerHTML,outerHTML%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://yoursite.com/2015/03/24/innerHTML,outerHTML的区别/</id>
+    <published>2015-03-24T15:34:43.000Z</published>
+    <updated>2016-10-27T11:19:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><span id="head"></span><br>之前一直迷惑<code>innerHTML</code>，<code>outerHTML</code>以及<code>outerText</code>，<code>innerText</code>之间的关系。今天自己写了一些代码然后总结一下。</p>
+<a id="more"></a>
+<p>html:</p>
+<pre><code>&lt;div id=&quot;outerDiv&quot;&gt;
+    i&apos;m outer div
+    &lt;div id=&quot;innerDiv&quot;&gt;
+        i&apos;m inner div
+        &lt;p id=&quot;innerP&quot;&gt;
+            i&apos;m inner p
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>执行以下语句:</p>
+<pre><code>var outerDiv = document.getElementById(&apos;outerDiv&apos;);
+var innerDiv = document.getElementById(&apos;innerDiv&apos;);
+var innerP = document.getElementById(&apos;innerP&apos;);
+
+outerDiv.innerHTML;
+</code></pre><p>得到：</p>
+<pre><code>&quot;
+    i&apos;m outer div
+    &lt;div id=&quot;innerDiv&quot;&gt;
+        i&apos;m inner div
+        &lt;p id=&quot;innerP&quot;&gt;
+            i&apos;m inner p
+        &lt;/p&gt;
+    &lt;/div&gt;
+&quot;
+</code></pre><p> 执行语句：</p>
+<pre><code>outerDiv.outerHTML;
+</code></pre><p>输出结果：</p>
+<pre><code>&quot;&lt;div id=&quot;outerDiv&quot;&gt;
+    i&apos;m outer div
+    &lt;div id=&quot;innerDiv&quot;&gt;
+        i&apos;m inner div
+        &lt;p id=&quot;innerP&quot;&gt;
+            i&apos;m inner p
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&quot;
+</code></pre><p>而执行以下两条语句</p>
+<pre><code>outerDiv.innerText;
+outerDiv.outerText;
+</code></pre><p>将会得到相同的输出：</p>
+<pre><code>&quot;i&apos;m outer div
+i&apos;m inner div
+i&apos;m inner p&quot;
+</code></pre><p>而事实上</p>
+<pre><code>outerDiv.innerText === outerDiv.outerText
+</code></pre><p>结果为<em>true</em>。</p>
+<p>因此可以总结出以下几点：</p>
+<ul>
+<li><code>outerText</code>和<code>innerText</code>包含的是当前对象中的所有文本，包括嵌套的文本；</li>
+<li><code>innerHTML</code>的范围是当前对象中包含的所有标签和文本，包括嵌套的，但不包括当前对象自身的标签；</li>
+<li><code>outerHTML</code>是在<code>innerHTML</code>的基础上加上自身标签；</li>
+<li>还应该注意到这几个属性的值都是字符串。</li>
+</ul>
+<p><a href="#header">返回顶部</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;span id=&#39;head&#39;&gt;&lt;/span&gt;&lt;br&gt;之前一直迷惑&lt;code&gt;innerHTML&lt;/code&gt;，&lt;code&gt;outerHTML&lt;/code&gt;以及&lt;code&gt;outerText&lt;/code&gt;，&lt;code&gt;innerText&lt;/code&gt;之间的关系。今天自己写了一些代码然后总结一下。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://yoursite.com/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2015/03/10/hello-world/"/>
+    <id>http://yoursite.com/2015/03/10/hello-world/</id>
+    <published>2015-03-10T05:52:02.000Z</published>
+    <updated>2016-12-27T11:55:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http://hexo.io
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
