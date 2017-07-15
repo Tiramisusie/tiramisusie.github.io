@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-18T03:45:05.000Z</updated>
+  <updated>2017-07-15T10:23:51.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>npx使用简介</title>
+    <link href="http://yoursite.com/2017/07/15/npx%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/"/>
+    <id>http://yoursite.com/2017/07/15/npx使用简介/</id>
+    <published>2017-07-15T08:26:54.000Z</published>
+    <updated>2017-07-15T10:23:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>前两天看到了一篇介绍 <em>npx</em> 命令的<a href="https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b" target="_blank" rel="external">文章</a>。想在这里跟大家分享一下。</p>
+<p>在 <em>npm@5.2.0</em> 中，出现了一个新的工具，<em>npx</em>。但其实你也可以不用升级到 npm@5.2.0，而是像安装普通的 npm 包一样安装它: <code>npm install -g npx</code>。<em>npx</em> 主要是带来了一些运行 npm 包的更便捷的方式。下面简单的介绍一下它的作用。</p>
+<a id="more"></a>
+<h2 id="更快捷的运行本地-npm-包"><a href="#更快捷的运行本地-npm-包" class="headerlink" title="更快捷的运行本地 npm 包"></a>更快捷的运行本地 npm 包</h2><p>很多时候，当我们需要用到 <em>gulp</em> 或者 <em>mocha</em> 等工具的时候，我们都不会把它们直接安装在全局环境下，而是作为 <em>devDependencies</em> 安装在本地。然后使用的时候就用 <code>node_modules/.bin/xxx</code> 命令来启动。但是这个命令有点太长了。现在，我们可以用 <em>npx</em> 实现同样的功能。</p>
+<p>只需要在 <code>npx</code> 命令后面加上你想要运行的 npm 包的名字，就像这样 <code>npx gulp</code> 。这样就能运行本地的 npm 包了。从此可以跟 <code>node_modules/.bin/xxx</code> 说再见了👋。</p>
+<h2 id="执行一次性命令"><a href="#执行一次性命令" class="headerlink" title="执行一次性命令"></a>执行一次性命令</h2><p>有些时候我们都会用到一些脚手架工具来快速生成一个项目，就像 <em>create-react-app</em> 。但也许你不想为了仅仅使用一次就在全局安装它。如果有一种方法能够在使用的时候才去安装它，并且用完以后就自动把它删除了，是不是会省事很多？这时候 <em>npx</em> 就能满足你的需求。</p>
+<p>假设你想使用 <em>create-react-app</em> 来新建一个项目，不需要全局安装 <em>create-react-app</em> ，只需要运行 <code>npx create-react-app my-new-app</code>，这样就可以了。</p>
+<p><img src="/images/npx-one-off.gif" alt=""> </p>
+<h2 id="使用不同版本的-node-来运行命令"><a href="#使用不同版本的-node-来运行命令" class="headerlink" title="使用不同版本的 node 来运行命令"></a>使用不同版本的 node 来运行命令</h2><p>通常，如果我们想使用不同版本的 <em>node</em> 来运行不同的命令，都会使用像 <em>nvm</em>、<em>n</em> 这样的 <em>node</em> 版本控制工具。但是通过结合 <em>npx</em> 和 <a href="https://www.npmjs.com/package/node-bin" target="_blank" rel="external"><em>node-bin</em></a> 这样的工具，我们可以更加快捷的使用不同版本的 <em>node</em> 来执行命令。</p>
+<p><img src="/images/npx-node-bin.png" alt="npx+node-bin"> </p>
+<p>关于 <em>npx</em> 的其他用法，可以参考<a href="https://www.npmjs.com/package/npx" target="_blank" rel="external">这里</a>。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前两天看到了一篇介绍 &lt;em&gt;npx&lt;/em&gt; 命令的&lt;a href=&quot;https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文章&lt;/a&gt;。想在这里跟大家分享一下。&lt;/p&gt;
+&lt;p&gt;在 &lt;em&gt;npm@5.2.0&lt;/em&gt; 中，出现了一个新的工具，&lt;em&gt;npx&lt;/em&gt;。但其实你也可以不用升级到 npm@5.2.0，而是像安装普通的 npm 包一样安装它: &lt;code&gt;npm install -g npx&lt;/code&gt;。&lt;em&gt;npx&lt;/em&gt; 主要是带来了一些运行 npm 包的更便捷的方式。下面简单的介绍一下它的作用。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="npx npm" scheme="http://yoursite.com/tags/npx-npm/"/>
+    
+  </entry>
   
   <entry>
     <title>vi使用入门</title>
@@ -150,7 +182,7 @@
     <summary type="html">
     
       &lt;p&gt;自从2015年开始接触ReactJS以后，就爱上了React。不过这篇文章不是要介绍React，而是介绍React开发环境的配置。&lt;/p&gt;
-&lt;p&gt;最初用React的时候，是用&lt;a href=&quot;http://browserify.org/&quot;&gt;browserify&lt;/a&gt;来打包，后来听说&lt;a href=&quot;https://webpack.github.io/&quot;&gt;webpack&lt;/a&gt;之后，就果断转向webpack。以下是我配置react开发环境的过程。&lt;/p&gt;
+&lt;p&gt;最初用React的时候，是用&lt;a href=&quot;http://browserify.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;browserify&lt;/a&gt;来打包，后来听说&lt;a href=&quot;https://webpack.github.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;webpack&lt;/a&gt;之后，就果断转向webpack。以下是我配置react开发环境的过程。&lt;/p&gt;
     
     </summary>
     
@@ -235,7 +267,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;今天看到了一篇文章，&lt;a href=&quot;http://www.cnblogs.com/front-end-ralph/p/4871332.html&quot;&gt;《优雅的数组降维——Javascript中apply方法的妙用》&lt;/a&gt;。里面介绍了3种多维数组降维的方法，个人感觉比较实用，于是记录一下。&lt;/p&gt;
+      &lt;p&gt;今天看到了一篇文章，&lt;a href=&quot;http://www.cnblogs.com/front-end-ralph/p/4871332.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《优雅的数组降维——Javascript中apply方法的妙用》&lt;/a&gt;。里面介绍了3种多维数组降维的方法，个人感觉比较实用，于是记录一下。&lt;/p&gt;
     
     </summary>
     
@@ -352,9 +384,9 @@
 <p>接着我们有一个 reducer：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//reduder.js</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; CHANGE &#125; <span class="keyword">from</span> <span class="string">'../actions/actions'</span></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> reducer 从 store 中接收两个参数：state 和 action ，你也可以为 state 加上默认值。</div><div class="line"> 根据 aciton.type 来改变应用的 state tree (返回新的 state)。</div><div class="line"> 建议默认返回原来的 state ，避免出现问题。</div><div class="line">*/</div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">reducer</span>(<span class="params">state = <span class="string">'hello'</span>, action</span>)</span>&#123;</div><div class="line">	<span class="keyword">switch</span> (action.type) &#123;</div><div class="line">		<span class="keyword">case</span> CHANGE:</div><div class="line">			<span class="keyword">return</span> &#123;</div><div class="line">				<span class="attr">text</span>: <span class="built_in">Math</span>.random()</div><div class="line">			&#125;;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">		<span class="keyword">default</span>:</div><div class="line">			<span class="keyword">return</span> state;</div><div class="line">			<span class="keyword">break</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>接下来是我们的顶层组件：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// app.js</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123; newRandom &#125; <span class="keyword">from</span> <span class="string">'./actions/actions'</span>;</div><div class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</div><div class="line"><span class="keyword">import</span> &#123; bindActionCreators &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> App = React.createClass(&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">const</span> &#123; dispatch &#125; = <span class="keyword">this</span>.props;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;h1&gt;&#123;this.props.text&#125;&lt;/h1&gt;</div><div class="line">                &lt;button onClick=&#123;()=&gt;dispatch(newRandom())&#125;&gt;click me!&lt;/button&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> 这个函数能接收到应用的 state tree ，并且返回我们需要的数据，也就是 props</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mapStateToProps</span>(<span class="params">state</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">text</span>: state.text</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//使用 connect 函数之后，App 组件就会被注入全局的 state 和一个 dispatch 函数</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps)(App)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// app.js</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> &#123; newRandom &#125; <span class="keyword">from</span> <span class="string">'./actions/actions'</span>;</div><div class="line"><span class="keyword">import</span> &#123; connect &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</div><div class="line"><span class="keyword">import</span> &#123; bindActionCreators &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> App = React.createClass(&#123;</div><div class="line">    render() &#123;</div><div class="line">        <span class="keyword">const</span> &#123; dispatch &#125; = <span class="keyword">this</span>.props;</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">            <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></div><div class="line">                <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;this.props.text&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span>=&gt;</span>dispatch(newRandom())&#125;&gt;click me!<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        );</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> 这个函数能接收到应用的 state tree ，并且返回我们需要的数据，也就是 props</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">mapStateToProps</span>(<span class="params">state</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">text</span>: state.text</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//使用 connect 函数之后，App 组件就会被注入全局的 state 和一个 dispatch 函数</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps)(App)</div></pre></td></tr></table></figure>
 <p>最后是我们的 index 文件：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// index.js</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</div><div class="line"><span class="keyword">import</span> reducer <span class="keyword">from</span> <span class="string">'./reducers/reducer'</span>;</div><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./app'</span>;</div><div class="line"></div><div class="line"><span class="comment">//实例化一个 store </span></div><div class="line"><span class="keyword">let</span> store = createStore(reducer);</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> 用 Provider 把我们的顶级组件 App 包裹其中，并传入 store 实例，</div><div class="line"> 这样在 App 中我们就能访问到 store 了。</div><div class="line">*/</div><div class="line">ReactDOM.render(</div><div class="line">	&lt;Provider store=&#123;store&#125;&gt;</div><div class="line">		&lt;App /&gt;</div><div class="line">	&lt;/Provider&gt;,</div><div class="line">	<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// index.js</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</div><div class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">'react-dom'</span>;</div><div class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</div><div class="line"><span class="keyword">import</span> &#123; Provider &#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</div><div class="line"><span class="keyword">import</span> reducer <span class="keyword">from</span> <span class="string">'./reducers/reducer'</span>;</div><div class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">'./app'</span>;</div><div class="line"></div><div class="line"><span class="comment">//实例化一个 store </span></div><div class="line"><span class="keyword">let</span> store = createStore(reducer);</div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> 用 Provider 把我们的顶级组件 App 包裹其中，并传入 store 实例，</div><div class="line"> 这样在 App 中我们就能访问到 store 了。</div><div class="line">*/</div><div class="line">ReactDOM.render(</div><div class="line">	<span class="xml"><span class="tag">&lt;<span class="name">Provider</span> <span class="attr">store</span>=<span class="string">&#123;store&#125;</span>&gt;</span></span></div><div class="line">		<span class="tag">&lt;<span class="name">App</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">Provider</span>&gt;</span>,</div><div class="line">	<span class="built_in">document</span>.getElementById(<span class="string">'root'</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
 <p>最后，用 webpack 之类的打包工具打包一下，并开启本地服务器，就能在浏览器中访问我们的应用了：</p>
 <p>  <img src="/images/redux01.png" alt="redux01"></p>
 <p>现在，每次点击按钮，都会产生一个随机数：</p>
@@ -441,7 +473,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;最近发现了一个工具&lt;a href=&quot;http://www.browsersync.io/&quot;&gt;browser-sync&lt;/a&gt;。使用这个工具可以同时在多个尺寸的浏览器中打开同一个页面，当在A浏览器中点击了一个按钮，在B浏览器中也会响应这个事件。另外，当你修改了本地的 HTML 文件或者 css 文件的时候，浏览器也会自动刷新网页，就像是liveEdit一样。非常cool的功能！&lt;br&gt;而且，它也可以结合&lt;a href=&quot;http://gulpjs.com/&quot;&gt;gulp&lt;/a&gt;或&lt;a href=&quot;http://gruntjs.com/&quot;&gt;grunt&lt;/a&gt;来使用，自动编译文件（例如.sacc）后实时显示效果。这样，你就可以同时打开几个浏览器窗口，分别显示不同的尺寸。&lt;/p&gt;
+      &lt;p&gt;最近发现了一个工具&lt;a href=&quot;http://www.browsersync.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;browser-sync&lt;/a&gt;。使用这个工具可以同时在多个尺寸的浏览器中打开同一个页面，当在A浏览器中点击了一个按钮，在B浏览器中也会响应这个事件。另外，当你修改了本地的 HTML 文件或者 css 文件的时候，浏览器也会自动刷新网页，就像是liveEdit一样。非常cool的功能！&lt;br&gt;而且，它也可以结合&lt;a href=&quot;http://gulpjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;gulp&lt;/a&gt;或&lt;a href=&quot;http://gruntjs.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;grunt&lt;/a&gt;来使用，自动编译文件（例如.sacc）后实时显示效果。这样，你就可以同时打开几个浏览器窗口，分别显示不同的尺寸。&lt;/p&gt;
     
     </summary>
     
@@ -480,7 +512,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;闭包是JavaScript的一个重要内容，但我以前一直没搞清楚它的工作原理，直到看到了&lt;a href=&quot;http://blog.leapoahead.com/2015/09/15/js-closure/&quot;&gt;一篇文章&lt;/a&gt;。&lt;/p&gt;
+      &lt;p&gt;闭包是JavaScript的一个重要内容，但我以前一直没搞清楚它的工作原理，直到看到了&lt;a href=&quot;http://blog.leapoahead.com/2015/09/15/js-closure/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;一篇文章&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;下面就简单的概括一下。&lt;/p&gt;
     
     </summary>
@@ -561,7 +593,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;最近在&lt;a href=&quot;https://css-tricks.com/&quot;&gt;css-tricks&lt;/a&gt;看到了一篇关于前端性能优化的文章&lt;a href=&quot;https://css-tricks.com/prefetching-preloading-prebrowsing/&quot;&gt;《Prefetching, preloading, prebrowsing》&lt;/a&gt;，于是尝试翻译一下。（第一次翻译，如有错漏，请多多指教）&lt;/p&gt;
+      &lt;p&gt;最近在&lt;a href=&quot;https://css-tricks.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;css-tricks&lt;/a&gt;看到了一篇关于前端性能优化的文章&lt;a href=&quot;https://css-tricks.com/prefetching-preloading-prebrowsing/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《Prefetching, preloading, prebrowsing》&lt;/a&gt;，于是尝试翻译一下。（第一次翻译，如有错漏，请多多指教）&lt;/p&gt;
     
     </summary>
     
@@ -590,7 +622,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;前段时间在网上看到一篇文章介绍了一些前端冷知识&lt;a href=&quot;http://web.jobbole.com/83473/&quot;&gt;文章在此&lt;/a&gt;，其中里面有说到了一点：页面拥有ID的元素会创建全局变量。
+      &lt;p&gt;前段时间在网上看到一篇文章介绍了一些前端冷知识&lt;a href=&quot;http://web.jobbole.com/83473/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;文章在此&lt;/a&gt;，其中里面有说到了一点：页面拥有ID的元素会创建全局变量。
     
     </summary>
     
@@ -615,7 +647,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;最近发现了一个可以生成CSS3动画的插件，感觉挺方便的，在这里推荐一下&lt;a href=&quot;http://melonh.com/animationGenerator/&quot;&gt;Animation Generator&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;最近发现了一个可以生成CSS3动画的插件，感觉挺方便的，在这里推荐一下&lt;a href=&quot;http://melonh.com/animationGenerator/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Animation Generator&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -771,7 +803,7 @@ i&apos;m inner p&quot;
     
     <summary type="html">
     
-      &lt;p&gt;&lt;span id=&#39;head&#39;&gt;&lt;/span&gt;&lt;br&gt;之前一直迷惑&lt;code&gt;innerHTML&lt;/code&gt;，&lt;code&gt;outerHTML&lt;/code&gt;以及&lt;code&gt;outerText&lt;/code&gt;，&lt;code&gt;innerText&lt;/code&gt;之间的关系。今天自己写了一些代码然后总结一下。&lt;/p&gt;
+      &lt;p&gt;&lt;span id=&quot;head&quot;&gt;&lt;/span&gt;&lt;br&gt;之前一直迷惑&lt;code&gt;innerHTML&lt;/code&gt;，&lt;code&gt;outerHTML&lt;/code&gt;以及&lt;code&gt;outerText&lt;/code&gt;，&lt;code&gt;innerText&lt;/code&gt;之间的关系。今天自己写了一些代码然后总结一下。&lt;/p&gt;
     
     </summary>
     
