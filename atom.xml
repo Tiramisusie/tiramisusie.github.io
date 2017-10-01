@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>LiaNicong&#39;s blog</title>
+  <title>Ledger&#39;s blog</title>
   
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-15T10:23:51.000Z</updated>
+  <updated>2017-09-23T09:46:39.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>Ningcong.Liang</name>
+    <name>Ledger.Liang</name>
     
   </author>
   
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/07/15/npx%E4%BD%BF%E7%94%A8%E7%AE%80%E4%BB%8B/"/>
     <id>http://yoursite.com/2017/07/15/npx使用简介/</id>
     <published>2017-07-15T08:26:54.000Z</published>
-    <updated>2017-07-15T10:23:51.000Z</updated>
+    <updated>2017-09-23T09:46:39.000Z</updated>
     
     <content type="html"><![CDATA[<p>前两天看到了一篇介绍 <em>npx</em> 命令的<a href="https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b" target="_blank" rel="external">文章</a>。想在这里跟大家分享一下。</p>
 <p>在 <em>npm@5.2.0</em> 中，出现了一个新的工具，<em>npx</em>。但其实你也可以不用升级到 npm@5.2.0，而是像安装普通的 npm 包一样安装它: <code>npm install -g npx</code>。<em>npx</em> 主要是带来了一些运行 npm 包的更便捷的方式。下面简单的介绍一下它的作用。</p>
