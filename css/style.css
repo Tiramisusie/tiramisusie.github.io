@@ -4,7 +4,7 @@ html {
   -webkit-font-smoothing: antialiased; }
 
 body {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.7);
   font-family: 'PingHei', 'PingFang SC', Helvetica Neue, 'Work Sans', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
   font-size: 15px;
   width: 100%;
@@ -94,11 +94,11 @@ a:hover, a:active {
 .content {
   height: auto;
   float: right;
-  width: 60%;
+  width: 70%;
   margin-top: 60px; }
 
 .page-top {
-  width: 60%;
+  width: 70%;
   position: fixed;
   right: 0;
   z-index: 3;
@@ -141,7 +141,7 @@ a:hover, a:active {
         padding-right: 40px; }
 
 .sidebar {
-  width: 40%;
+  width: 30%;
   -webkit-background-size: cover;
   background-size: cover;
   background-color: #fff;
@@ -214,7 +214,7 @@ a:hover, a:active {
   .post .post-title a {
     text-decoration: none;
     letter-spacing: 1px;
-    color: #5f5f5f; }
+    color: #3c3c3c; }
     .post .post-title a:hover {
       text-decoration: underline; }
   .post .post-content a {
